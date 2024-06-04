@@ -1,0 +1,6 @@
+{
+        "ip":      "10.10.168.45",
+        "port":    "1521",
+        "pwd":     "oracle",
+        "service": "yusys"
+}

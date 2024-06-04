@@ -1,0 +1,13 @@
+{
+    "oracle_panel"    :  ":nth-child(2) > .nav__item--sub > :nth-child(1) > .nav__text",
+    "data_protect"    :  ":nth-child(2) > .nav__item--sub > .nav > :nth-child(1) > .nav__link > .nav__text",
+    "create_bakDB"    :  ".header-action > .ant-space > .ant-space-item > .ant-btn",
+    
+    "oracle_ip"       :  "#ip",
+    "oracle_port"     :  "#port",
+    "oracle_password" :  "#password",
+    "oracle_servicename":"#serviceName",
+    "oracle_test_conn":  ".ant-form-item-control-input-content > .ant-btn > span",
+    "orapw_span"      :  "pre > span"
+
+}

@@ -1,0 +1,20 @@
+[
+    {
+        "name":     "feng",
+        "pwd":      "Leysg00!",
+        "email":    "123456@qq.com",
+        "phone":    "12345678910"
+    },
+    {
+        "name":     "admin",
+        "pwd":      "admin",
+        "email":    "xxxx@qq.com",
+        "phone":    "11111111111"
+    },
+    {
+        "name":     "    ",
+        "pwd":      "admin",
+        "email":    "xxxx@qq.com",
+        "phone":    "11111111111"
+    }
+]

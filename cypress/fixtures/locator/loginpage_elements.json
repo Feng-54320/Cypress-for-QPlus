@@ -1,0 +1,8 @@
+{
+    "login_text"           :  "legend > span",
+    "username_inputbox"    :  ":nth-child(2) > .form__control-group > .form__control",
+    "password_inputbox"    :  ":nth-child(3) > .form__control-group > .form__control",
+    "login_button"         :  ".form__btn",
+    "qplus_control_panel"  :  ":nth-child(1) > .dropdown__toggle > span",
+    "captcha_inputbox"     :  ".captcha > .form__control-group > .form__control"
+}
