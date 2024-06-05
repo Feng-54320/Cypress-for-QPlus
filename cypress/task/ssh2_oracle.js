@@ -2,8 +2,7 @@ const { Client } = require("ssh2");
 const fs = require("fs");
 
 fs.readFile(
-  "cypress/command_file/oracle_Orapw_cmd.txt",
-  "utf8",
+  "cypress/command_file/oracle_Orapw_cmd.txt","utf8",
   (err, data) => {
     if (err) {
       console.error("Error reading file:", err);
