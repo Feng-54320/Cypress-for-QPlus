@@ -1,1 +1,1 @@
-cd /opt/oracle/product/19.3.0/db_1/dbs && curl -F "file=@orapwyusys" http://10.10.60.7:21080/api/v1/logo/upload/a8f6a
+cd /opt/oracle/product/19.3.0/db_1/dbs && curl -F "file=@orapwyusys" http://10.10.60.7:21080/api/v1/logo/upload/4f6e5
