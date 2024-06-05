@@ -29,21 +29,20 @@
 //登陆命令：loginCommand()
 import LoginPage from "../e2e/page/login_page.cy";
 
-Cypress.Commands.add('loginCommand', () => {  
-    let loginPage
-    let qplusUrl
+Cypress.Commands.add("loginCommand", () => {
+  let loginPage;
+  let qplusUrl;
 
-    cy.fixture('/env/qplus_url.json').then((data) => {
-        qplusUrl = data.url
-    })
+  cy.fixture("/env/qplus_url.json").then((data) => {
+    qplusUrl = data.url;
+  });
 
-    cy.fixture('/locator/loginpage_elements.json').then((elements) => {
-        loginPage = new LoginPage(elements)
-        loginPage.visitQplus(qplusUrl)
-        loginPage.typeUsername('admin')
-        loginPage.typePassword('admin')
-        loginPage.typeCaptcha('$$$$')
-        loginPage.clickLoginButton()
-    })
-
+  cy.fixture("/locator/loginpage_elements.json").then((elements) => {
+    loginPage = new LoginPage(elements);
+    loginPage.visitQplus(qplusUrl);
+    loginPage.typeUsername("admin");
+    loginPage.typePassword("admin");
+    loginPage.typeCaptcha("$$$$");
+    loginPage.clickLoginButton();
+  });
 });
