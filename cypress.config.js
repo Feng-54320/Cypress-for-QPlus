@@ -5,7 +5,7 @@ const path = require("path");
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      //### 写文件任务START
+      // ### 写文件任务START
       on("task", {
         writeFile({ filePath, text }) {
           const fullPath = path.resolve(filePath);
@@ -21,7 +21,7 @@ module.exports = defineConfig({
           return null; // 或者返回写入状态等
         },
       });
-      //### 写文件任务END
+      // ### 写文件任务END
     },
 
     // 配置浏览器大小

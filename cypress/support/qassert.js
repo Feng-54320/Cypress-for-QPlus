@@ -13,6 +13,7 @@ class qAssert {
   assertContains(text) {
     cy.contains(text).should("be.visible");
   }
+  
 }
 
 export default new qAssert();

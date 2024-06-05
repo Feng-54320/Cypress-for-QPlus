@@ -13,7 +13,7 @@ describe("module：验证登录功能", () => {
   });
 
   //用例1
-  it("case 1： 验证连接Oracle主库成功", () => {
+  it("case 1： 验证Oracle数据源配置成功", () => {
     //1. 点击oracle数据保护
     createBakDB.clickOracle();
     //2. 点击创建备库并输入主库信息
@@ -24,5 +24,11 @@ describe("module：验证登录功能", () => {
     createBakDB.getOrapwText();
     //5. 上传orapw文件
     createBakDB.uploadOrapwFile();
+    //6. 点击检测按钮
+    createBakDB.clickDetectionbutton();
+    //7. 断言上传成功
+    createBakDB.assertUploadSuccess();
+    //8. 点击数据库许可
+    createBakDB.clickDBlicense();
   });
 });

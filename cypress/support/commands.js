@@ -41,7 +41,7 @@ Cypress.Commands.add("loginCommand", () => {
     loginPage = new LoginPage(elements);
     loginPage.visitQplus(qplusUrl);
     loginPage.typeUsername("admin");
-    loginPage.typePassword("admin");
+    loginPage.typePassword("Passw0rd!");
     loginPage.typeCaptcha("$$$$");
     loginPage.clickLoginButton();
   });

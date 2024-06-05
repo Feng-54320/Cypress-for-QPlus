@@ -8,5 +8,9 @@
   "oracle_password": "#password",
   "oracle_servicename": "#serviceName",
   "oracle_test_conn": ".ant-form-item-control-input-content > .ant-btn > span",
-  "orapw_span": "pre > span"
+  "conn_success": ".ant-form-item-control-input-content > .ant-btn > span",
+  "orapw_span": "pre > span",
+  "detection_button": ":nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-btn > span",
+  "success_sign": "[style=\"font-size: 12px; padding-left: 5px; color: rgb(82, 196, 26);\"] > .anticon",
+  "DBlicense": ".ant-switch-inner"
 }
