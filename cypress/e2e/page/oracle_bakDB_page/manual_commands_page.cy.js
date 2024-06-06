@@ -18,7 +18,9 @@ class ManualCommandPage {
         let tnsCommand = lines[1];
 
         if (tnsCommand) {
-          const bashCommand = `cd /opt/oracle/product/19.3.0/db_1/network/admin && echo '${tnsCommand}' >> /home/oracle/feng/feng_test.txt`;
+          const bashCommand = `echo '${tnsCommand}' >> /opt/oracle/product/19.3.0/db_1/network/admin/tnsnames.ora`;
+          //const bashCommand = `echo '${tnsCommand}' >> $ORACLE_HOME/network/admin/tnsnames.ora`;
+
           return cy
             .task("writeFile", {
               filePath: "cypress/command_file/tnsname_cmd.txt",

@@ -2,7 +2,8 @@ const { Client } = require("ssh2");
 const fs = require("fs");
 
 fs.readFile(
-  "cypress/command_file/oracle_Orapw_cmd.txt","utf8",
+  "cypress/command_file/oracle_Orapw_cmd.txt",
+  "utf8",
   (err, data) => {
     if (err) {
       console.error("Error reading file:", err);
@@ -52,6 +53,9 @@ fs.readFile(
               });
               execStream.on("close", (code, signal) => {
                 console.log(`Script executed with code: ${code}`);
+                if (code !== 0) {
+                  console.error("Error executed with code:", code);
+                }
                 conn.end();
               });
             });

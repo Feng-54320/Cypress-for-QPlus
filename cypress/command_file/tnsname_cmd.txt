@@ -1,4 +1,4 @@
-cd /opt/oracle/product/19.3.0/db_1/network/admin && echo 'yusysBK35e =
+echo 'yusysBK35e =
 (DESCRIPTION =
   (ADDRESS = (PROTOCOL = TCP)(HOST = 10.10.60.7)(PORT = 35106))
   (CONNECT_DATA =
@@ -7,4 +7,4 @@ cd /opt/oracle/product/19.3.0/db_1/network/admin && echo 'yusysBK35e =
       SERVICE_NAME = yusysBK35e
     )
   )
-)' >> /home/oracle/feng/feng_test.txt
+)' >> /opt/oracle/product/19.3.0/db_1/network/admin/tnsnames.ora
