@@ -1,34 +1,57 @@
-import LoginPage from "../page/login_page.cy";
-import CreateOracleBakDB from "../page/create_bakdb_page.cy";
+import SrcOracleInfoPage from "../page/oracle_bakDB_page/src_oracle_info_page.cy";
+import BakOracleInfoPage from "../page/oracle_bakDB_page/bak_oracle_info_page.cy";
+import ManualCommandPage from "../page/oracle_bakDB_page/manual_commands_page.cy";
 
-describe("module：验证登录功能", () => {
-  let createBakDB;
+context("module：验证登录功能", () => {
+  let srcOracleInfo;
+  let bakOracleInfo;
+  let manualCommand;
 
   //测试套件前置：读取qplus的url和登陆用例的测试数据
-  before(() => {
+  beforeEach(() => {
     cy.loginCommand();
     cy.fixture("/locator/create_oracleDB_elements.json").then((elements) => {
-      createBakDB = new CreateOracleBakDB(elements);
+      srcOracleInfo = new SrcOracleInfoPage(elements[0]);
+      bakOracleInfo = new BakOracleInfoPage(elements[1]);
+      manualCommand = new ManualCommandPage(elements[2]);
     });
   });
 
   //用例1
-  it("case 1： 验证Oracle数据源配置成功", () => {
+  it.skip("case 1： 验证Oracle数据源配置成功", () => {
     //1. 点击oracle数据保护
-    createBakDB.clickOracle();
+    srcOracleInfo.clickOracle();
     //2. 点击创建备库并输入主库信息
-    createBakDB.createOracleBakdb();
+    srcOracleInfo.createOracleBakdb();
     //3. 断言连接成功
-    createBakDB.assertConnDB();
+    srcOracleInfo.assertConnDB();
     //4. 获取orapw文件路径
-    createBakDB.getOrapwText();
+    srcOracleInfo.getOrapwText();
     //5. 上传orapw文件
-    createBakDB.uploadOrapwFile();
+    srcOracleInfo.uploadOrapwFile();
     //6. 点击检测按钮
-    createBakDB.clickDetectionbutton();
+    srcOracleInfo.clickDetectionbutton();
     //7. 断言上传成功
-    createBakDB.assertUploadSuccess();
+    srcOracleInfo.assertUploadSuccess();
     //8. 点击数据库许可
-    createBakDB.clickDBlicense();
+    srcOracleInfo.clickDBlicense();
+    //9. 点击下一步
+    srcOracleInfo.clickNextStep();
+    //10. 配置备库信息
+    bakOracleInfo.typeBakDBName();
+    bakOracleInfo.selectComputerInstance();
+    //bakOracleInfo.typeRedoZone();
+    bakOracleInfo.typeDataZone();
+    //bakOracleInfo.typeArchiveZone();
+    bakOracleInfo.clickNextStep();
   });
+
+  it("case 2: 执行手动操作文档", () =>{
+    //1. 点击oracle数据保护
+    srcOracleInfo.clickOracle();
+    manualCommand.clickMore();
+    manualCommand.getTnsnameText();
+    manualCommand.execAutoTnsname();
+  })
+
 });

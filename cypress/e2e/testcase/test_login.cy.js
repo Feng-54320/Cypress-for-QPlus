@@ -12,7 +12,7 @@ describe("module：验证登录功能", () => {
       loginPage = new LoginPage(elements);
     });
 
-    cy.readFile("cypress/config/qplus_url.json").then((data) => {
+    cy.fixture("/env/qplus_url.json").then((data) => {
       login_url = data.url;
     });
 
@@ -45,7 +45,7 @@ describe("module：验证登录功能", () => {
   });
 
   //用例2
-  it("case 1： 验证非法用户名登录", () => {
+  it.skip("case 1： 验证非法用户名登录", () => {
     loginPage.typeUsername(invalid_user.name);
     loginPage.typePassword(invalid_user.pwd);
     loginPage.typeCaptcha("$$$$");

@@ -1,16 +1,35 @@
-{
-  "oracle_panel": ":nth-child(2) > .nav__item--sub > :nth-child(1) > .nav__text",
-  "data_protect": ":nth-child(2) > .nav__item--sub > .nav > :nth-child(1) > .nav__link > .nav__text",
-  "create_bakDB": ".header-action > .ant-space > .ant-space-item > .ant-btn",
+[
+  {
+    "oracle_panel": ":nth-child(2) > .nav__item--sub > :nth-child(1) > .nav__text",
+    "data_protect": ":nth-child(2) > .nav__item--sub > .nav > :nth-child(1) > .nav__link > .nav__text",
+    "create_bakDB": ".header-action > .ant-space > .ant-space-item > .ant-btn",
 
-  "oracle_ip": "#ip",
-  "oracle_port": "#port",
-  "oracle_password": "#password",
-  "oracle_servicename": "#serviceName",
-  "oracle_test_conn": ".ant-form-item-control-input-content > .ant-btn > span",
-  "conn_success": ".ant-form-item-control-input-content > .ant-btn > span",
-  "orapw_span": "pre > span",
-  "detection_button": ":nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-btn > span",
-  "success_sign": "[style=\"font-size: 12px; padding-left: 5px; color: rgb(82, 196, 26);\"] > .anticon",
-  "DBlicense": ".ant-switch-inner"
-}
+    "oracle_ip": "#ip",
+    "oracle_port": "#port",
+    "oracle_password": "#password",
+    "oracle_servicename": "#serviceName",
+    "oracle_test_conn": ".ant-form-item-control-input-content > .ant-btn > span",
+    "conn_success": ".ant-form-item-control-input-content > .ant-btn > span",
+    "orapw_span": "pre > span",
+    "detection_button": ":nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-btn > span",
+    "success_sign": "[style=\"font-size: 12px; padding-left: 5px; color: rgb(82, 196, 26);\"] > .anticon",
+    "DBlicense": ".ant-switch-inner",
+    "next_step_button": ":nth-child(2) > .ant-btn > span"
+  },
+  {
+    "bakDB_name": "#name",
+    "computer_box": "#computeInstanceUuid",
+    "computer_dropdown": ".ant-select-dropdown",
+    "node_selection": ":nth-child(4) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+    "address_pool": "#addressPoolUuid",
+    "redo_zone": ":nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > .store_space_form > .store_space_form_item_input > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > .ant-input-number > .ant-input-number-input-wrap > .ant-input-number-input",
+    "data_zone": ":nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > .store_space_form > .store_space_form_item_input > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > .ant-input-number > .ant-input-number-input-wrap > .ant-input-number-input",
+    "data_zone_add": ":nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > .store_space_form > .store_space_form_item_input > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > [style=\"border-top-right-radius: 6px; border-bottom-right-radius: 6px;\"]",
+    "archive_zone": ":nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > .store_space_form > .store_space_form_item_input > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > .ant-input-number > .ant-input-number-input-wrap > .ant-input-number-input",
+    "next_step_button": ":nth-child(2) > .ant-btn > span"
+  },
+  {
+    "more_button": ".ant-table-row > .ant-table-cell-fix-right > .ant-space-gap-row-small > :nth-child(5) > .ant-dropdown-trigger > .ant-space > :nth-child(1) > span",
+    "tnsname_text": ":nth-child(3) > pre"
+  }
+]

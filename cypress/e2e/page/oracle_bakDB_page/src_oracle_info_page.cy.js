@@ -1,6 +1,6 @@
-import qAssert from "../../support/qassert.js";
+import qAssert from "../../../support/qassert.js";
 
-class CreateOracleBakDB {
+class SrcOracleInfo {
   constructor(oracleDBElements) {
     this.elements = oracleDBElements;
   }
@@ -10,13 +10,15 @@ class CreateOracleBakDB {
     cy.get(this.elements.oracle_panel).should("have.text", "Oracle").click();
 
     cy.get(this.elements.data_protect).should("have.text", "数据保护").click();
-
-    cy.get(this.elements.create_bakDB).should("have.text", "创建备库").click();
   }
 
   //输入oracle主库的表单信息
   createOracleBakdb() {
     cy.fixture("/env/oracle_env.json").then((oracleEnv) => {
+      cy.get(this.elements.create_bakDB)
+        .should("have.text", "创建备库")
+        .click();
+        
       cy.get(this.elements.oracle_ip).type(oracleEnv.ip);
 
       cy.get(this.elements.oracle_port).clear().type(oracleEnv.port);
@@ -93,5 +95,10 @@ class CreateOracleBakDB {
   clickDBlicense() {
     cy.get(this.elements.DBlicense).click();
   }
+
+  //点击下一步
+  clickNextStep() {
+    cy.get(this.elements.next_step_button).click();
+  }
 }
-export default CreateOracleBakDB;
+export default SrcOracleInfo;
