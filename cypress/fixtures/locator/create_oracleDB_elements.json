@@ -30,6 +30,8 @@
   },
   {
     "more_button": ".ant-table-row > .ant-table-cell-fix-right > .ant-space-gap-row-small > :nth-child(5) > .ant-dropdown-trigger > .ant-space > :nth-child(1) > span",
-    "tnsname_text": ":nth-child(3) > pre"
+    "tnsname_text": ":nth-child(3) > pre",
+    "multi_channel":"#rc-tabs-0-tab-2",
+    "sync_data_text": ":nth-child(5) > pre"
   }
 ]

@@ -63,7 +63,7 @@ class SrcOracleInfo {
             return cy
               .task("writeFile", {
                 filePath: "cypress/command_file/oracle_orapw_cmd.txt",
-                text: "cd /opt/oracle/product/19.3.0/db_1/dbs && " + cmd,
+                text: "cd /opt/oracle/products/dbs && " + cmd,
               })
               .then(() => cmd);
           });

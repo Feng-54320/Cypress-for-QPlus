@@ -1,10 +1,10 @@
-echo 'yusysBK35e =
+echo 'master1BKe23 =
 (DESCRIPTION =
-  (ADDRESS = (PROTOCOL = TCP)(HOST = 10.10.60.7)(PORT = 35106))
+  (ADDRESS = (PROTOCOL = TCP)(HOST = 10.10.60.7)(PORT = 35107))
   (CONNECT_DATA =
     (SERVER = DEDICATED)
     (
-      SERVICE_NAME = yusysBK35e
+      SERVICE_NAME = master1BKe23
     )
   )
-)' >> /opt/oracle/product/19.3.0/db_1/network/admin/tnsnames.ora
+)' >> /opt/oracle/products/network/admin/tnsnames.ora

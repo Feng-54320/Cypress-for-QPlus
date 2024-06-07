@@ -1,6 +1,6 @@
 {
-  "ip": "10.10.168.45",
+  "ip": "10.10.168.73",
   "port": "1521",
   "pwd": "oracle",
-  "service": "yusys"
+  "service": "master1"
 }

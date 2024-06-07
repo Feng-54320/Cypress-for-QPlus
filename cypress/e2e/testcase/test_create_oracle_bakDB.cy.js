@@ -49,9 +49,16 @@ context("module：验证登录功能", () => {
   it("case 2: 执行手动操作文档", () =>{
     //1. 点击oracle数据保护
     srcOracleInfo.clickOracle();
+    //2. 点击更多按钮
     manualCommand.clickMore();
+    //3. 获取tnsname文档内容
     manualCommand.getTnsnameText();
+    //4. 在tnsnames.ora配置tnsname
     manualCommand.execAutoTnsname();
+    //5. 获取数据同步文档内容
+    manualCommand.getSyncDataText();
+    //6. 执行脚本同步数据
+    manualCommand.execSyncDataScript();
   })
 
 });
