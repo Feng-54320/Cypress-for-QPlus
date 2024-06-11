@@ -1,11 +1,11 @@
 import qAssert from "../../../support/qassert.js";
 
-//获取oracle环境变量
-const OracleHome = oracleEnv.oracle_home;
-
 class SrcOracleInfo {
   constructor(oracleDBElements) {
     this.elements = oracleDBElements;
+    cy.fixture("/env/oracle_env.json").then((env) => {
+      this.OracleHome = env.oracle_home;
+    });
   }
 
   //点击Qplus主页的Oracle创建备库
@@ -66,7 +66,7 @@ class SrcOracleInfo {
             return cy
               .task("writeFile", {
                 filePath: "cypress/command_file/oracle_orapw_cmd.txt",
-                text: `cd '${OracleHome}'/dbs && ` + cmd,
+                text: `cd ${this.OracleHome}/dbs && ` + cmd,
               })
               .then(() => cmd);
           });

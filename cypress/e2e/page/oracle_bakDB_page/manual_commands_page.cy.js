@@ -1,19 +1,9 @@
-const fs = require("fs").promises;
-
-
-//读取oracle环境配置文件
-const oracleJson = fs.readFileSync(
-  "cypress/fixtures/env/oracle_env.json",
-  "utf8"
-);
-const oracleEnv = JSON.parse(oracleJson);
-
-//获取oracle环境变量
-const OracleHome = oracleEnv.oracle_home;
-
 class ManualCommandPage {
   constructor(oracleDBElements) {
     this.elements = oracleDBElements;
+    cy.fixture("/env/oracle_env.json").then((env) => {
+      this.OracleHome = env.oracle_home;
+    });
   }
 
   clickMore() {
@@ -31,9 +21,7 @@ class ManualCommandPage {
         let tnsCommand = lines[1];
 
         if (tnsCommand) {
-          const bashCommand = `echo '${tnsCommand}' >> '${OracleHome}'/network/admin/tnsnames.ora`;
-          //const bashCommand = `echo '${tnsCommand}' >> $ORACLE_HOME/network/admin/tnsnames.ora`;
-
+          const bashCommand = `echo '${tnsCommand}' >> ${this.OracleHome}/network/admin/tnsnames.ora`;
           cy.task("writeFile", {
             filePath: "cypress/command_file/tnsname_cmd.txt",
             text: bashCommand,
@@ -138,6 +126,13 @@ class ManualCommandPage {
   clickNextStep() {
     cy.get(this.elements.next_step_button).click();
     cy.get(this.elements.yes_button).click();
+  }
+
+  execArchiveScript() {
+    cy.exec("node ./cypress/task/oracle/ssh2_archive.js").then((result) => {
+      cy.log(result.stdout);
+      expect(result.code).to.equal(0);
+    });
   }
 }
 export default ManualCommandPage;

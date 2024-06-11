@@ -1,15 +1,17 @@
 const { Client } = require("ssh2");
 const fs = require("fs").promises;
 
-//读取oracle环境配置文件
-const oracleJson = fs.readFileSync(
-  "cypress/fixtures/env/oracle_env.json",
-  "utf8"
-);
-const oracleEnv = JSON.parse(oracleJson);
+
 
 async function main() {
   try {
+    //读取oracle环境配置文件
+    const oracleJson = await fs.readFile(
+      "cypress/fixtures/env/oracle_env.json",
+      "utf8"
+    );
+    const oracleEnv = JSON.parse(oracleJson);
+
     const data = await fs.readFile(
       "cypress/command_file/tnsname_cmd.txt",
       "utf8"
@@ -86,7 +88,7 @@ async function main() {
 
                   // 执行 tnsping
                   conn.exec(
-                    `su - oracle -c tnsping master1BKeb4`,
+                    `su - oracle -c tnsping master1BKdb1`,
                     (err, pingStream) => {
                       console.log("exec tnsping command");
                       if (err) {

@@ -1,7 +1,11 @@
 import Utils from "../../../support/utils.js";
+
 class BakOracleInfoPage {
   constructor(oracleDBElements) {
     this.elements = oracleDBElements;
+    cy.fixture("/env/oracle_env.json").then((env) => {
+      this.OracleHome = env.oracle_home;
+    });
   }
 
   typeBakDBName() {
@@ -31,7 +35,7 @@ class BakOracleInfoPage {
     cy.get(this.elements.archive_zone).clear();
   }
 
-  clickNextStep(){
+  clickNextStep() {
     cy.get(this.elements.next_step_button).click();
   }
 }

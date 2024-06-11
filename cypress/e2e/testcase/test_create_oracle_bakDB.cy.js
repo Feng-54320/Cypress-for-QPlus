@@ -63,7 +63,7 @@ context("module：验证登录功能", () => {
     //5. 获取数据同步文档内容
     manualCommand.getSyncDataText();
     //6. 执行脚本同步数据
-    cy.wait(15000)
+    cy.wait(10000)
     manualCommand.execSyncDataScript();
     //7. 获取修改log_archive_config配置文档
     manualCommand.getLogArchiveDest();
@@ -71,5 +71,7 @@ context("module：验证登录功能", () => {
     manualCommand.execSqlScript();
     //9. 点击下一步
     manualCommand.clickNextStep();
+    //10. 手动alter归档
+    manualCommand.execArchiveScript();
   });
 });

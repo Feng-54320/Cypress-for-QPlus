@@ -26,19 +26,20 @@ module.exports = defineConfig({
         // ### 执行命令任务START
         execWithTimeout({ command, time }) {
           return new Promise((resolve, reject) => {
+            console.log(`Executing command: ${command} with timeout: ${time}`);
             const child = exec(command, (error, stdout, stderr) => {
               if (error) {
+                console.log(`Command error: ${error.message}`);
                 reject({ code: error.code, stderr });
               } else {
+                console.log(`Command stdout: ${stdout}`);
                 resolve({ code: 0, stdout });
               }
             });
 
             setTimeout(() => {
               child.kill();
-              reject(
-                new Error(`Command timed out after ${time / 1000} seconds.`)
-              );
+              reject(new Error(`Command timed out after ${time / 1000} seconds.`));
             }, time);
           });
         },
@@ -52,7 +53,7 @@ module.exports = defineConfig({
     //配置截图路径
     screenshotsFolder: "cypress/screenshots",
     //配置任务超时时间
-    defaultCommandTimeout: 300000, 
+    defaultCommandTimeout: 300000,
     taskTimeout: 300000,
   },
 });

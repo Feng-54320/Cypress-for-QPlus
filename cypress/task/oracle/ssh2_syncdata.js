@@ -1,15 +1,14 @@
 const { Client } = require("ssh2");
 const fs = require("fs").promises;
 
-//读取oracle环境配置文件
-const oracleJson = fs.readFileSync(
-  "cypress/fixtures/env/oracle_env.json",
-  "utf8"
-);
-const oracleEnv = JSON.parse(oracleJson);
-
 async function main() {
   try {
+    //读取oracle环境配置文件
+    const oracleJson = await fs.readFile(
+      "cypress/fixtures/env/oracle_env.json",
+      "utf8"
+    );
+
     const rmanCmd = await fs.readFile(
       "cypress/command_file/rman_cmd.txt",
       "utf8"
@@ -18,6 +17,7 @@ async function main() {
       "cypress/command_file/duplicate_cmd.txt",
       "utf8"
     );
+    const oracleEnv = JSON.parse(oracleJson);
     const rmanContent = rmanCmd;
     const duplicateContent = duplicateCmd;
     //console.log("Rman Content is: " + rmanContent);
