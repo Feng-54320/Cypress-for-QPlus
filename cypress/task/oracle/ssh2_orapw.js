@@ -1,6 +1,13 @@
 const { Client } = require("ssh2");
 const fs = require("fs");
 
+//读取oracle环境配置文件
+const oracleJson = fs.readFileSync(
+  "cypress/fixtures/env/oracle_env.json",
+  "utf8"
+);
+const oracleEnv = JSON.parse(oracleJson);
+
 fs.readFile(
   "cypress/command_file/oracle_Orapw_cmd.txt",
   "utf8",
@@ -86,10 +93,10 @@ fs.readFile(
         });
       })
       .connect({
-        host: "10.10.168.73",
+        host: oracleEnv.ip,
         port: 22,
-        username: "root",
-        password: "letsg0",
+        username: oracleEnv.username,
+        password: oracleEnv.password,
       });
   }
 );

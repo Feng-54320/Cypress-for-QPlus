@@ -1,6 +1,11 @@
 {
   "ip": "10.10.168.73",
   "port": "1521",
-  "pwd": "oracle",
-  "service": "master1"
+  "sys": "sys",
+  "orapwd": "oracle",
+  "service": "master1",
+  "username": "root",
+  "password": "letsg0",
+  "connString": "10.10.168.73:1521/master1",
+  "oracle_home": "/opt/oracle/products"
 }

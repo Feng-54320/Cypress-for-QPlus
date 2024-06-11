@@ -29,9 +29,15 @@
     "next_step_button": ":nth-child(2) > .ant-btn > span"
   },
   {
+    "manual_text": ".ant-modal-content",
     "more_button": ".ant-table-row > .ant-table-cell-fix-right > .ant-space-gap-row-small > :nth-child(5) > .ant-dropdown-trigger > .ant-space > :nth-child(1) > span",
     "tnsname_text": ":nth-child(3) > pre",
     "multi_channel":"#rc-tabs-0-tab-2",
-    "sync_data_text": ":nth-child(5) > pre"
+    "sync_data_text": ":nth-child(5) > pre",
+    "log_archive_text": ":nth-child(6) > pre",
+    "log_archive_dest_text": ":nth-child(7) > pre",
+    "next_step_button": "[style=\"text-align: end; margin-top: 20px;\"] > .ant-btn",
+    "second_confirm": ".ant-popconfirm-inner-content",
+    "yes_button": ".ant-popconfirm-buttons > .ant-btn-primary > span"
   }
 ]

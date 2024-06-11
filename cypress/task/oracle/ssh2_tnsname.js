@@ -1,6 +1,13 @@
 const { Client } = require("ssh2");
 const fs = require("fs").promises;
 
+//读取oracle环境配置文件
+const oracleJson = fs.readFileSync(
+  "cypress/fixtures/env/oracle_env.json",
+  "utf8"
+);
+const oracleEnv = JSON.parse(oracleJson);
+
 async function main() {
   try {
     const data = await fs.readFile(
@@ -8,7 +15,7 @@ async function main() {
       "utf8"
     );
     const tnsContent = data;
-    console.log("File Content is: " + tnsContent);
+    console.log("tnsping Content is: " + tnsContent);
 
     const conn = new Client();
     conn
@@ -78,28 +85,31 @@ async function main() {
                   console.log(`Script executed with code: ${code}`);
 
                   // 执行 tnsping
-                  conn.exec(`tnsping master1BKe23`, (err, pingStream) => {
-                    console.log("exec tnsping command");
-                    if (err) {
-                      console.error("Error executing ORACLE_SID:", err);
-                      conn.end();
-                      return;
-                    }
-                    pingStream.on("data", (data) => {
-                      console.log(`STDOUT: ${data}`);
-                    });
-                    pingStream.stderr.on("data", (data) => {
-                      console.error(`STDERR: ${data}`);
-                    });
-                    pingStream.on("close", (code, signal) => {
-                      if (code !== 0) {
-                        console.error(`tnsping executed with code: ${code}`);
-                      } else {
-                        console.log(`tnsping executed with code: ${code}`);
+                  conn.exec(
+                    `su - oracle -c tnsping master1BKeb4`,
+                    (err, pingStream) => {
+                      console.log("exec tnsping command");
+                      if (err) {
+                        console.error("Error executing ORACLE_SID:", err);
+                        conn.end();
+                        return;
                       }
-                      conn.end();
-                    });
-                  });
+                      pingStream.on("data", (data) => {
+                        console.log(`STDOUT: ${data}`);
+                      });
+                      pingStream.stderr.on("data", (data) => {
+                        console.error(`STDERR: ${data}`);
+                      });
+                      pingStream.on("close", (code, signal) => {
+                        if (code !== 0) {
+                          console.error(`tnsping executed with code: ${code}`);
+                        } else {
+                          console.log(`tnsping executed with code: ${code}`);
+                        }
+                        conn.end();
+                      });
+                    }
+                  );
                 });
               });
             });
@@ -114,10 +124,10 @@ async function main() {
         });
       })
       .connect({
-        host: "10.10.168.73",
+        host: oracleEnv.ip,
         port: 22,
-        username: "root",
-        password: "letsg0",
+        username: oracleEnv.username,
+        password: oracleEnv.password,
       });
   } catch (error) {
     console.error("Error:", error);

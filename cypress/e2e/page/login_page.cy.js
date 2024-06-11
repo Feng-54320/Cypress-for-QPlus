@@ -8,7 +8,10 @@ class LoginPage {
   //访问Qplus
   visitQplus(url) {
     cy.visit(url);
-    cy.get(this.elements.login_text).should("have.text", "登录");
+    cy.get(this.elements.login_text, { timeout: 10000 }).should(
+      "have.text",
+      "登录"
+    );
   }
 
   //输入登录用户

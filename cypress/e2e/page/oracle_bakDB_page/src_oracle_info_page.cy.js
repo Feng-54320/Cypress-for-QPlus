@@ -1,5 +1,8 @@
 import qAssert from "../../../support/qassert.js";
 
+//获取oracle环境变量
+const OracleHome = oracleEnv.oracle_home;
+
 class SrcOracleInfo {
   constructor(oracleDBElements) {
     this.elements = oracleDBElements;
@@ -18,12 +21,12 @@ class SrcOracleInfo {
       cy.get(this.elements.create_bakDB)
         .should("have.text", "创建备库")
         .click();
-        
+
       cy.get(this.elements.oracle_ip).type(oracleEnv.ip);
 
       cy.get(this.elements.oracle_port).clear().type(oracleEnv.port);
 
-      cy.get(this.elements.oracle_password).type(oracleEnv.pwd);
+      cy.get(this.elements.oracle_password).type(oracleEnv.orapwd);
 
       cy.get(this.elements.oracle_servicename).type(oracleEnv.service);
 
@@ -63,7 +66,7 @@ class SrcOracleInfo {
             return cy
               .task("writeFile", {
                 filePath: "cypress/command_file/oracle_orapw_cmd.txt",
-                text: "cd /opt/oracle/products/dbs && " + cmd,
+                text: `cd '${OracleHome}'/dbs && ` + cmd,
               })
               .then(() => cmd);
           });
@@ -75,7 +78,7 @@ class SrcOracleInfo {
 
   //执行js脚本，上传密码文件
   uploadOrapwFile() {
-    cy.exec("node ./cypress/task/ssh2_oracle.js").then((result) => {
+    cy.exec("node ./cypress/task/oracle/ssh2_orapw.js").then((result) => {
       cy.log(result.stdout);
       expect(result.code).to.equal(0);
     });

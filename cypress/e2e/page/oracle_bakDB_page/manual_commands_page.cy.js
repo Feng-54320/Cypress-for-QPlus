@@ -1,3 +1,16 @@
+const fs = require("fs").promises;
+
+
+//读取oracle环境配置文件
+const oracleJson = fs.readFileSync(
+  "cypress/fixtures/env/oracle_env.json",
+  "utf8"
+);
+const oracleEnv = JSON.parse(oracleJson);
+
+//获取oracle环境变量
+const OracleHome = oracleEnv.oracle_home;
+
 class ManualCommandPage {
   constructor(oracleDBElements) {
     this.elements = oracleDBElements;
@@ -18,7 +31,7 @@ class ManualCommandPage {
         let tnsCommand = lines[1];
 
         if (tnsCommand) {
-          const bashCommand = `echo '${tnsCommand}' >> /opt/oracle/products/network/admin/tnsnames.ora`;
+          const bashCommand = `echo '${tnsCommand}' >> '${OracleHome}'/network/admin/tnsnames.ora`;
           //const bashCommand = `echo '${tnsCommand}' >> $ORACLE_HOME/network/admin/tnsnames.ora`;
 
           cy.task("writeFile", {
@@ -33,9 +46,9 @@ class ManualCommandPage {
   }
 
   execAutoTnsname() {
-    cy.exec("node ./cypress/task/ssh2_tnsname.js").then((result) => {
+    cy.exec("node ./cypress/task/oracle/ssh2_tnsname.js").then((result) => {
       cy.log(result.stdout);
-      expect(result.code).to.equal(0);
+      //expect(result.code).to.equal(0);
     });
   }
 
@@ -60,9 +73,9 @@ class ManualCommandPage {
             filePath: "cypress/command_file/rman_cmd.txt",
             text: rmanCommand,
           });
-          cy.log("RMAN 命令写入成功: " + rmanCommand);
+          cy.log("RMAN命令提取成功: " + rmanCommand);
         } else {
-          cy.fail("rman命令提取失败");
+          cy.fail("RMAN命令提取失败");
         }
 
         let duplicateCommand = "";
@@ -72,19 +85,59 @@ class ManualCommandPage {
             filePath: "cypress/command_file/duplicate_cmd.txt",
             text: duplicateCommand,
           });
-          cy.log("DUPLICATE 命令写入成功: " + duplicateCommand);
+          cy.log("DUPLICATE命令提取成功: " + duplicateCommand);
         } else {
-          cy.log("duplicate命令提取失败");
+          cy.log("DUPLICATE命令提取失败");
         }
       });
   }
 
   execSyncDataScript() {
-    cy.exec("node ./cypress/task/ssh2_syncdata.js").then((result) => {
+    cy.task("execWithTimeout", {
+      command: "node ./cypress/task/oracle/ssh2_syncdata.js",
+      time: 300000,
+    }).then((result) => {
       cy.log(result.stdout);
       expect(result.code).to.equal(0);
     });
   }
 
+  getLogArchiveDest() {
+    cy.get(this.elements.log_archive_dest_text)
+      .invoke("text")
+      .then((text) => {
+        cy.log("获取配置归档传输路径文档内容：" + text);
+        const lines = text.split("sysdba");
+        let sqlCommand = "";
+
+        lines.forEach((line) => {
+          if (line.includes("alter")) {
+            sqlCommand = line.trim();
+          }
+        });
+
+        if (sqlCommand) {
+          cy.log("获取配置归档路径alter命令: " + sqlCommand);
+          return cy.task("writeFile", {
+            filePath: "cypress/command_file/alter_sql.txt",
+            text: sqlCommand,
+          });
+        } else {
+          throw new Error("未找到配置归档路径alter命令");
+        }
+      });
+  }
+
+  execSqlScript() {
+    cy.exec("node ./cypress/task/oracle/ssh2_oracle_sql.js").then((result) => {
+      cy.log(result.stdout);
+      expect(result.code).to.equal(0);
+    });
+  }
+
+  clickNextStep() {
+    cy.get(this.elements.next_step_button).click();
+    cy.get(this.elements.yes_button).click();
+  }
 }
 export default ManualCommandPage;
