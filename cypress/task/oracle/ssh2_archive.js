@@ -22,21 +22,21 @@ const remoteAlterArchiveCommand = `su - oracle -c "echo \\"${alterArchiveCommand
 
 conn
   .on("ready", () => {
-    console.log("Client :: ready");
+    console.log("[Info] Client :: ready");
     conn.exec(remoteAlterArchiveCommand, (err, stream) => {
       if (err) throw err;
       stream
         .on("close", (code, signal) => {
           console.log(
-            "Stream :: close :: code: " + code + ", signal: " + signal
+            "[Info] Stream :: close :: code: " + code + ", signal: " + signal
           );
           conn.end();
         })
         .on("data", (data) => {
-          console.log("STDOUT: " + data);
+          console.log("[Info] STDOUT: " + data);
         })
         .stderr.on("data", (data) => {
-          console.error("STDERR: " + data);
+          console.error("[Error] STDERR: " + data);
         });
     });
   })

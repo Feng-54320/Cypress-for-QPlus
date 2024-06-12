@@ -25,7 +25,7 @@ class ManualCommandPage {
         if (tnsCommand) {
           const bashCommand = `echo '${tnsCommand}' >> ${this.OracleHome}/network/admin/tnsnames.ora`;
           cy.task("writeFile", {
-            filePath: "cypress/command_file/tnsname_cmd.txt",
+            filePath: "cypress/command_file/oracle/tnsname_cmd.txt",
             text: bashCommand,
           });
           cy.log("提取到tnsname配置内容: " + bashCommand);
@@ -39,7 +39,7 @@ class ManualCommandPage {
   execAutoTnsname() {
     cy.exec("node ./cypress/task/oracle/ssh2_tnsname.js").then((result) => {
       cy.log(result.stdout);
-      //expect(result.code).to.equal(0);
+      expect(result.code).to.equal(0);
     });
   }
 
@@ -62,7 +62,7 @@ class ManualCommandPage {
         if (rmanMatch) {
           rmanCommand = rmanMatch[0];
           cy.task("writeFile", {
-            filePath: "cypress/command_file/rman_cmd.txt",
+            filePath: "cypress/command_file/oracle/rman_cmd.txt",
             text: rmanCommand,
           });
           cy.log("RMAN命令提取成功: " + rmanCommand);
@@ -74,7 +74,7 @@ class ManualCommandPage {
         if (duplicateMatch) {
           duplicateCommand = duplicateMatch[0];
           cy.task("writeFile", {
-            filePath: "cypress/command_file/duplicate_cmd.txt",
+            filePath: "cypress/command_file/oracle/duplicate_cmd.txt",
             text: duplicateCommand,
           });
           cy.log("DUPLICATE命令提取成功: " + duplicateCommand);
@@ -113,7 +113,7 @@ class ManualCommandPage {
         if (sqlCommand) {
           cy.log("获取配置归档路径alter命令: " + sqlCommand);
           return cy.task("writeFile", {
-            filePath: "cypress/command_file/alter_sql.txt",
+            filePath: "cypress/command_file/oracle/alter_sql.txt",
             text: sqlCommand,
           });
         } else {

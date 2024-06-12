@@ -1,4 +1,4 @@
-import Utils from "../../../support/utils.js";
+import Utils from "../../../../support/utils.js";
 
 class BakOracleInfoPage {
   constructor(oracleDBElements) {

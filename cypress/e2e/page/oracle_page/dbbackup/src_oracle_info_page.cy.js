@@ -1,4 +1,4 @@
-import qAssert from "../../../support/qassert.js";
+import qAssert from "../../../../support/qassert.js";
 
 class SrcOracleInfo {
   constructor(oracleDBElements) {
@@ -37,10 +37,8 @@ class SrcOracleInfo {
 
   //断言测试连接成功
   assertConnDB() {
-    qAssert.assertButton(
+    qAssert.assertButtonYes(
       this.elements.conn_success,
-      "be.visible",
-      "not.be.disabled"
     );
     cy.contains("连接测试成功");
   }
@@ -66,7 +64,7 @@ class SrcOracleInfo {
             cy.log(cmd);
             return cy
               .task("writeFile", {
-                filePath: "cypress/command_file/oracle_orapw_cmd.txt",
+                filePath: "cypress/command_file/oracle/oracle_orapw_cmd.txt",
                 text: `cd ${this.OracleHome}/dbs && ` + cmd,
               })
               .then(() => cmd);

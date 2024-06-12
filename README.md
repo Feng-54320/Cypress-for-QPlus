@@ -44,9 +44,18 @@ Cypress for Qplus/
 │   │   │   ├── qplus_url.json
 │   │   │   └── …
 │   │   ├── locator      # 元素定位
-│   │   │   ├── xxx_elements.json
-│   │   │   └── …
-│   │
+│   │   │   ├── oracle
+│   │   │   │   ├── dbbackup
+│   │   │   │   │   ├── xxx_elements.json
+│   │   │   │   │   └── …
+│   │   │   │   ├── recovery
+│   │   │   │   │   ├── xxx_elements.json
+│   │   │   │   │   └── …
+│   │   │   ├── mysql
+│   │   │   │   ├── dbbackup
+│   │   │   │   │   ├── xxx_elements.json
+│   │   │   │   │   └── …
+│   │ 
 │   ├── support/         # 公共函数
 │   │   ├── commands.js  # 自定义命令
 │   │   ├── utils.js     # 封装自定义工具函数等

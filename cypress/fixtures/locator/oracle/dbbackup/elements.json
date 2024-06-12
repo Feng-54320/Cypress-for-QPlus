@@ -39,5 +39,11 @@
     "next_step_button": "[style=\"text-align: end; margin-top: 20px;\"] > .ant-btn",
     "second_confirm": ".ant-popconfirm-inner-content",
     "yes_button": ".ant-popconfirm-buttons > .ant-btn-primary > span"
+  },
+  {
+    "more_button": ".ant-table-row > .ant-table-cell-fix-right > .ant-space-gap-row-small > :nth-child(5) > .ant-dropdown-trigger > .ant-space > :nth-child(1) > span",
+    "snapshot_name": "#createSnapshotSimpleModalForm_name",
+    "confirm_button": ":nth-child(2) > .ant-btn > span",
+    "snap_success": ".ant-notification-notice"
   }
 ]

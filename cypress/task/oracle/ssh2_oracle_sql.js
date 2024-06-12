@@ -18,7 +18,7 @@ const connectString = oracleEnv.connString;
 //读取文档sql命令
 const showCommand = "show parameter log_archive_config;";
 const alterSetCommand = fs.readFileSync(
-  "cypress/command_file/alter_sql.txt",
+  "cypress/command_file/oracle/alter_sql.txt",
   "utf8"
 );
 
@@ -30,15 +30,15 @@ const remoteAlterSetCommand = `su - oracle -c "echo \\"${alterSetCommand}\\" | s
 
 conn
   .on("ready", () => {
-    console.log("Client :: ready");
+    console.log("[Info] Client :: ready");
     conn.exec(remoteShowCommand, (err, stream) => {
       if (err) throw err;
       stream
         .on("data", (data) => {
-          console.log("STDOUT: " + data);
+          console.log("[Info] STDOUT: " + data);
         })
         .stderr.on("data", (data) => {
-          console.error("STDERR: " + data);
+          console.error("[Error] STDERR: " + data);
         });
     });
 
@@ -47,15 +47,15 @@ conn
       stream
         .on("close", (code, signal) => {
           console.log(
-            "Stream :: close :: code: " + code + ", signal: " + signal
+            "[Info] Stream :: close :: code: " + code + ", signal: " + signal
           );
           conn.end();
         })
         .on("data", (data) => {
-          console.log("STDOUT: " + data);
+          console.log("[Info] STDOUT: " + data);
         })
         .stderr.on("data", (data) => {
-          console.error("STDERR: " + data);
+          console.error("[Error] STDERR: " + data);
         });
     });
   })

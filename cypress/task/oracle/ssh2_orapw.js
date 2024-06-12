@@ -9,80 +9,80 @@ const oracleJson = fs.readFileSync(
 const oracleEnv = JSON.parse(oracleJson);
 
 fs.readFile(
-  "cypress/command_file/oracle_Orapw_cmd.txt",
+  "cypress/command_file/oracle/oracle_Orapw_cmd.txt",
   "utf8",
   (err, data) => {
     if (err) {
-      console.error("Error reading file:", err);
+      console.error("[Error] reading file:", err);
       return;
     }
 
     const cmdContent = data;
-    console.log("File Content is: " + cmdContent);
+    console.log("[Info] File Content is: " + cmdContent);
 
     const conn = new Client();
     conn
       .on("ready", () => {
-        console.log("Client :: ready");
+        console.log("[Info] Client :: ready");
 
-        const scriptPath = "/home/oracle/feng/orapw.sh";
+        const scriptPath = "/home/oracle/autotest/orapw.sh";
         const scriptContent = cmdContent;
 
         // 写入脚本文件
         conn.exec(`su - oracle`, (err, suStream) => {
-          console.log("exec: su - oracle");
+          console.log("[Info] exec: su - oracle");
           if (err) {
-            console.error("Error executing su:", err);
+            console.error("[Error] executing su:", err);
             return;
           }
           suStream.on("data", (data) => {
-            console.log(`STDOUT: ${data}`);
+            console.log(`[Info] STDOUT: ${data}`);
           });
           suStream.stderr.on("data", (data) => {
-            console.error(`STDERR: ${data}`);
+            console.error(`[Error] STDERR: ${data}`);
           });
           suStream.on("close", (code, signal) => {
-            console.log(`su executed with code: ${code}`);
+            console.log(`[Info] su executed with code: ${code}`);
             if (code !== 0) {
-              console.error("Error executed with code:", code);
+              console.error("[Error] executed with code:", code);
             }
             conn.end();
           });
           conn.exec(
             `echo '${scriptContent}' > ${scriptPath}`,
             (err, stream) => {
-              console.log("command: " + scriptContent);
+              console.log("[Info] command: " + scriptContent);
               if (err) {
-                console.error("Error writing file:", err);
+                console.error("[Error] writing file:", err);
                 return;
               }
               stream.on("data", (data) => {
-                console.log(`STDOUT (echo command): ${data.toString()}`);
+                console.log(`[Info] STDOUT (echo command): ${data}`);
               });
-              stream.on("close", (code, signal) => {
+              stream.on("close", (code) => {
                 if (code !== 0) {
-                  console.error("Error executing command:", code);
+                  console.error("[Error] executing command:", code);
                   return;
                 }
-                console.log("File written successfully.");
+                console.log("[Info] File written successfully.");
 
                 // 执行脚本
                 conn.exec(`sh ${scriptPath}`, (err, execStream) => {
-                  console.log("exec script: sh " + scriptPath);
+                  console.log("[Info] exec script: sh " + scriptPath);
                   if (err) {
-                    console.error("Error executing script:", err);
+                    console.error("[Error] executing script:", err);
                     return;
                   }
                   execStream.on("data", (data) => {
-                    console.log(`STDOUT: ${data}`);
+                    console.log(`[Info] STDOUT: ${data}`);
                   });
                   execStream.stderr.on("data", (data) => {
-                    console.error(`STDERR: ${data}`);
+                    console.error(`[Error] STDERR: ${data}`);
                   });
-                  execStream.on("close", (code, signal) => {
-                    console.log(`Script executed with code: ${code}`);
+                  execStream.on("close", (code) => {
+                    console.log(`[Info] Script executed with code: ${code}`);
                     if (code !== 0) {
-                      console.error("Error executed with code:", code);
+                      console.error("[Error] executed with code:", code);
                     }
                     conn.end();
                   });

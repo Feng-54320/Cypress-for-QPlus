@@ -1,20 +1,25 @@
-import SrcOracleInfoPage from "../page/oracle_bakDB_page/src_oracle_info_page.cy";
-import BakOracleInfoPage from "../page/oracle_bakDB_page/bak_oracle_info_page.cy";
-import ManualCommandPage from "../page/oracle_bakDB_page/manual_commands_page.cy";
+import SrcOracleInfoPage from "../../page/oracle_page/dbbackup/src_oracle_info_page.cy";
+import BakOracleInfoPage from "../../page/oracle_page/dbbackup/bak_oracle_info_page.cy";
+import ManualCommandPage from "../../page/oracle_page/dbbackup/manual_commands_page.cy";
+import CreateSnapshotPage from "../../page/oracle_page/dbbackup/create_snapshot.cy";
 
-context("module：验证登录功能", () => {
+describe("module：验证登录功能", () => {
   let srcOracleInfo;
   let bakOracleInfo;
   let manualCommand;
+  let createSnapshot;
 
   //测试套件前置：读取qplus的url和登陆用例的测试数据
   beforeEach(() => {
     cy.loginCommand();
-    cy.fixture("/locator/create_oracleDB_elements.json").then((elements) => {
-      srcOracleInfo = new SrcOracleInfoPage(elements[0]);
-      bakOracleInfo = new BakOracleInfoPage(elements[1]);
-      manualCommand = new ManualCommandPage(elements[2]);
-    });
+    cy.fixture("/locator/oracle/dbbackup/elements.json").then(
+      (elements) => {
+        srcOracleInfo = new SrcOracleInfoPage(elements[0]);
+        bakOracleInfo = new BakOracleInfoPage(elements[1]);
+        manualCommand = new ManualCommandPage(elements[2]);
+        createSnapshot = new CreateSnapshotPage(elements[3]);
+      }
+    );
   });
 
   //用例1
@@ -75,4 +80,13 @@ context("module：验证登录功能", () => {
     cy.wait(20000);
     manualCommand.execArchiveScript();
   });
+
+  it.only("case 3: 创建快照", () => {
+    //1. 点击oracle数据保护
+    srcOracleInfo.clickOracle();
+    //2. 点击创建快照
+    createSnapshot.clickCreateSnapshot();
+    //3. 断言创建成功
+    createSnapshot.assertSnapSuccess();
+  })
 });

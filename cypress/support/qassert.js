@@ -1,21 +1,30 @@
 class qAssert {
-  //断言指定位置的文本是否存在
-  assertText(element, text, ifvisible, ifexist) {
+  //断言指定位置的文本存在
+  assertTextExist(element, text) {
     cy.get(element, { timeout: 10000 })
-      .should("have.text", text)
-      .should(ifvisible)
-      .should(ifexist);
+      .should("be.visible")
+      .and("contain", text);
   }
 
-  //断言某按钮是否可用
-  assertButton(element, ifvisible, ifdisabled) {
-    cy.get(element, { timeout: 10000 }).should(ifvisible).should(ifdisabled);
+  //断言页面文本不存在
+  assertTextNotExist(text) {
+    cy.contains(text).should("not.exist");
   }
 
-  //断言页面上有指定文本
-  assertContains(text) {
-    cy.contains(text).should("be.visible");
+  //断言某按钮可用
+  assertButtonYes(element) {
+    cy.get(element, { timeout: 10000 })
+      .should("be.visible")
+      .should("not.be.disabled");
   }
+
+  //断言某按钮不可用
+  assertButtonNO(element) {
+    cy.get(element, { timeout: 10000 })
+      .should("be.visible")
+      .should("be.disabled");
+  }
+
 }
 
 export default new qAssert();
