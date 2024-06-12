@@ -3,6 +3,7 @@ import qAssert from "../../../support/qassert.js";
 class SrcOracleInfo {
   constructor(oracleDBElements) {
     this.elements = oracleDBElements;
+    //读取$ORACLE_HOME
     cy.fixture("/env/oracle_env.json").then((env) => {
       this.OracleHome = env.oracle_home;
     });

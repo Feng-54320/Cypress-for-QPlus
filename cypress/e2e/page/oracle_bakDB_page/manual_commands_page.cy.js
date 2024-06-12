@@ -6,12 +6,14 @@ class ManualCommandPage {
     });
   }
 
+  //点击备库列表的更多按钮,进入手动操作文档
   clickMore() {
     //cy.contains('更多').click();
     cy.get(this.elements.more_button).eq(0).click();
     cy.contains("手动操作文档").click();
   }
 
+  //获取tnsnames配置文本
   getTnsnameText() {
     cy.get(this.elements.tnsname_text)
       .invoke("text")
@@ -33,6 +35,7 @@ class ManualCommandPage {
       });
   }
 
+  //执行tns配置脚本
   execAutoTnsname() {
     cy.exec("node ./cypress/task/oracle/ssh2_tnsname.js").then((result) => {
       cy.log(result.stdout);
@@ -40,6 +43,7 @@ class ManualCommandPage {
     });
   }
 
+  //获取同步数据文档文本
   getSyncDataText() {
     cy.get(this.elements.multi_channel).click();
     cy.get(this.elements.sync_data_text)
@@ -80,6 +84,7 @@ class ManualCommandPage {
       });
   }
 
+  //执行同步数据脚本
   execSyncDataScript() {
     cy.task("execWithTimeout", {
       command: "node ./cypress/task/oracle/ssh2_syncdata.js",
@@ -90,6 +95,7 @@ class ManualCommandPage {
     });
   }
 
+  //获取归档传输文档文本
   getLogArchiveDest() {
     cy.get(this.elements.log_archive_dest_text)
       .invoke("text")
@@ -116,6 +122,7 @@ class ManualCommandPage {
       });
   }
 
+  //执行归档传输配置脚本
   execSqlScript() {
     cy.exec("node ./cypress/task/oracle/ssh2_oracle_sql.js").then((result) => {
       cy.log(result.stdout);
@@ -123,11 +130,13 @@ class ManualCommandPage {
     });
   }
 
+  //点击下一步按钮
   clickNextStep() {
     cy.get(this.elements.next_step_button).click();
     cy.get(this.elements.yes_button).click();
   }
 
+  //切换归档
   execArchiveScript() {
     cy.exec("node ./cypress/task/oracle/ssh2_archive.js").then((result) => {
       cy.log(result.stdout);

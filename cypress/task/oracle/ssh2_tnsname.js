@@ -1,8 +1,6 @@
 const { Client } = require("ssh2");
 const fs = require("fs").promises;
 
-
-
 async function main() {
   try {
     //读取oracle环境配置文件
@@ -12,11 +10,10 @@ async function main() {
     );
     const oracleEnv = JSON.parse(oracleJson);
 
-    const data = await fs.readFile(
+    const tnsContent = await fs.readFile(
       "cypress/command_file/tnsname_cmd.txt",
       "utf8"
     );
-    const tnsContent = data;
     console.log("tnsping Content is: " + tnsContent);
 
     const conn = new Client();
