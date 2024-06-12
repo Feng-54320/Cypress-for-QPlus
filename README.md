@@ -22,10 +22,17 @@ Cypress for Qplus/
 │   │   └── …
 │   │
 │   ├── pages/           # 页面层
-│   │   ├── login_page.js
-│   │   ├── bkdb_page.js
-│   │   ├── schedule_page.js
-│   │   ├── user_page.js
+│   │   ├── oracle_page
+│   │   │   ├── dbbackup_page
+│   │   │   │   ├── bak_oracle_info_page.cy.js
+│   │   │   │   ├── manual_commands_page.cy.js
+│   │   │   │   ├── src_oracle_info_page.cy.js
+│   │   │   │   └── …
+│   │   │   ├── recovery_page
+│   │   │   │   ├── xxx.cy.js
+│   │   │   │   └── …
+│   │   │
+│   │   ├── mysql_page
 │   │   └── …
 │   │
 │   ├── fixtures/        # 数据层
