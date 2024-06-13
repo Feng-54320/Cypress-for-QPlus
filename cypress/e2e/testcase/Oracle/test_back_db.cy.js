@@ -3,7 +3,7 @@ import BakOracleInfoPage from "../../page/oracle_page/dbbackup/bak_oracle_info_p
 import ManualCommandPage from "../../page/oracle_page/dbbackup/manual_commands_page.cy";
 import CreateSnapshotPage from "../../page/oracle_page/dbbackup/create_snapshot.cy";
 
-describe("module：验证登录功能", () => {
+describe("module：Oracle数据保护", () => {
   let srcOracleInfo;
   let bakOracleInfo;
   let manualCommand;

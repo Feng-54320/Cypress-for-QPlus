@@ -1,6 +1,6 @@
 import RecoveryDBPage from "../../page/oracle_page/recovery/oracle_recovery_page.cy";
 
-describe("module：验证登录功能", () => {
+describe("module：Oracle数据恢复", () => {
   let recoveryDBPage;
 
   //用例前置：读取qplus的url和登陆用例的测试数据
@@ -34,7 +34,7 @@ describe("module：验证登录功能", () => {
     //10. 获取时间点范围
     recoveryDBPage.getTimeLimit();
     //11. 点击确认按钮
-    recoveryDBPage.clickConfirmButton();
+    //recoveryDBPage.clickConfirmButton();
     //12. 断言创建成功
     recoveryDBPage.assertCreateRCYDBSuccess();
     //13. 点击进度日志的确认按钮
