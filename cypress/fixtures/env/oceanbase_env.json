@@ -1,0 +1,13 @@
+{
+  "ip": "10.10.168.178",
+  "port": "31627",
+  "rpc_ip": "10.10.168.178",
+  "rpc_port": "31628",
+  "sys_tenant_name": "root",
+  "sys_tenant_password": "0iclARacf@0o",
+  "bak_tenant": "zrbmysql",
+  "config_tenant_name": "zrb",
+  "config_tenant_password": "Cljslrl0620@",
+  "source_path": "10.10.168.190:/data/ob-50557580/zrbmysql/data",
+  "source_path_args": "-o port=2049"
+}

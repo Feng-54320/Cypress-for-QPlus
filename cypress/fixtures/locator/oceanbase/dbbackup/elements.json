@@ -1,0 +1,55 @@
+[
+  {
+    "ob_panel": ":nth-child(5) > .nav__item--sub > :nth-child(1) > .nav__text",
+    "data_protect": ":nth-child(5) > .nav__item--sub > .nav > :nth-child(1) > .nav__link > .nav__text",
+    "create_bakDB": ".header-action > .ant-space > .ant-space-item > .ant-btn > span",
+
+    "ob_ip": "#obMasterConfigForm_masterDBArgs_ip",
+    "ob_port": "#obMasterConfigForm_masterDBArgs_port",
+    "rpc_ip": "#obMasterConfigForm_masterDBArgs_rpcIp",
+    "rpc_port": "#obMasterConfigForm_masterDBArgs_rpcPort",
+    "sys_tenant_name": "#obMasterConfigForm_masterDBArgs_sysTenantUsername",
+    "sys_tenant_password": "#obMasterConfigForm_masterDBArgs_sysTenantPassword",
+    "test_conn_button": ".ant-col-18 > :nth-child(1) > :nth-child(1) > .ant-btn > span",
+    "conn_success": ".ant-notification-notice",
+    "bak_tenant": ".ant-select-selection-overflow",
+    "db_version": "#obMasterConfigForm_masterDBArgs_tenantNames_extra",
+    "next_step_button": ":nth-child(2) > .ant-btn > span"
+  },
+  {
+    "bakdb_name": "#obStandbyConfigForm_name",
+    "select_scale": ":nth-child(1) > :nth-child(4) > .ant-row > .ant-col-18 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+    "select_node": ":nth-child(1) > :nth-child(5) > .ant-row > .ant-col-18 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+    "data_storage_add_button": ":nth-child(3) > :nth-child(3) > .ant-row > .ant-col-18 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-flex > .ant-input-number > .ant-input-number-handler-wrap > .ant-input-number-handler-up",
+    "data_compression": ":nth-child(3) > :nth-child(4) > .ant-row > .ant-col-18 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+    "snapshot_zone_add_button": ":nth-child(6) > .ant-row > .ant-col-18 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-flex > .ant-input-number > .ant-input-number-handler-wrap > .ant-input-number-handler-up",
+    "archive_zone_add_button": ":nth-child(4) > :nth-child(3) > .ant-row > .ant-col-18 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-flex > .ant-input-number > .ant-input-number-handler-wrap > .ant-input-number-handler-up",
+    "archive_compression": ":nth-child(4) > :nth-child(4) > .ant-row > .ant-col-18 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+    "enable_archive_compression": ":nth-child(5) > .ant-select-dropdown > :nth-child(1) > .rc-virtual-list > .rc-virtual-list-holder > :nth-child(1) > .rc-virtual-list-holder-inner > [aria-selected=\"false\"]",
+    "data_file_size_add_button": ":nth-child(2) > .ant-row > .ant-col-18 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-flex > .ant-input-number > .ant-input-number-handler-wrap > .ant-input-number-handler-up",
+    "log_disk_size_add_button": ":nth-child(5) > :nth-child(3) > .ant-row > .ant-col-18 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-flex > .ant-input-number > .ant-input-number-handler-wrap > .ant-input-number-handler-up",
+    "next_step_button": ":nth-child(2) > .ant-btn > span",
+    "progress_log": ".progress-log-modal__content"
+  },
+  {
+    "more_button": ".ant-table-row > .ant-table-cell-fix-right > .ant-space-gap-row-small > :nth-child(5) > .ant-dropdown-trigger > .ant-space > :nth-child(1) > span",
+    "config_tenant_window": ".ant-modal-content",
+    "tenant_more_button": ".ant-space-gap-row-small > :nth-child(1) > .ant-dropdown-trigger",
+    "config_tenant_button": ":nth-child(5) > .ant-dropdown > .ant-dropdown-menu > .ant-dropdown-menu-item > .ant-dropdown-menu-title-content > .ant-btn > span",
+    "tenant_info_window":":nth-child(6) > .ant-modal-root > .ant-modal-wrap > .ant-modal > [style=\"outline: none;\"] > .ant-modal-content",
+    "cpu_add_button": ":nth-child(3) > .ant-row > .ant-col-18 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-flex > .ant-input-number > .ant-input-number-handler-wrap > .ant-input-number-handler-up",
+    "memory_add_button": ":nth-child(4) > .ant-row > .ant-col-18 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-flex > .ant-input-number > .ant-input-number-handler-wrap > .ant-input-number-handler-up",
+    "log_disk_size_add_button": ":nth-child(5) > .ant-row > .ant-col-18 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-flex > .ant-input-number > .ant-input-number-handler-wrap > .ant-input-number-handler-up",
+    "tenant_name": "#obTenantConfigForm_username",
+    "tenant_password": "#obTenantConfigForm_password",
+    "source_path": "#obTenantConfigForm_sourcePath",
+    "source_path_args": "#obTenantConfigForm_sourcePathArgs",
+    "save_button": ".ant-form-item-control-input-content > .ant-space > :nth-child(2) > .ant-btn > span",
+    "auto_exec_button": ".ant-descriptions-extra > .ant-space > :nth-child(3) > .ant-btn > span",
+    "config_tenant_window_2": ".ob-tenant-config > :nth-child(2)",
+    "refresh_status_button": ":nth-child(5) > .ant-btn > span",
+    "tenant_more_button_2": ":nth-child(3) > .ant-dropdown-trigger > .ant-space > :nth-child(1) > span",
+    "start_sync_button": ":nth-child(5) > .ant-dropdown > .ant-dropdown-menu > .ant-dropdown-menu-item > .ant-dropdown-menu-title-content > .ant-btn > span",
+    "finish_button": ".ta-r > .ant-space > :nth-child(2) > .ant-btn"
+  }
+]

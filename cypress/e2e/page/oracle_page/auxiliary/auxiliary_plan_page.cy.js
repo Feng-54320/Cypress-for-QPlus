@@ -84,7 +84,7 @@ class AuxiliaryPlanPage {
     }
   }
 
-  //选择计划参数基于什么
+  //选择计划参数基于
   selectParamsBase(base = "最新") {
     cy.get(this.elements.param_base)
       .click()
