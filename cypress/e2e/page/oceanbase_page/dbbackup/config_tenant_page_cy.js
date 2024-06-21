@@ -118,7 +118,7 @@ class ConfigTenantPage {
   }
 
   //断言待同步
-  assertWaitForExec() {
+  assertWaitForSync() {
     cy.log("断言待同步");
     cy.get(this.elements.refresh_status_button).click();
     qAssert.assertTextExist(this.elements.config_tenant_window_2, "待启动同步");

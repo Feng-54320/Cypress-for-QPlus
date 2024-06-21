@@ -19,13 +19,21 @@ describe("module：OceanBase 数据保护", () => {
 
   //用例1
   it("case 1： 输入OB数据源和备库信息", () => {
+    //点击OB的数据保护
     srcDBConfigPage.clickOceanBase();
+    //断言创建备库按钮可用并点击
     srcDBConfigPage.assertCreateBakDBButton();
+    //输入源库配置信息
     srcDBConfigPage.typeOBSrcInfo();
+    //点击测试链接按钮
     srcDBConfigPage.clickTestConnButton();
+    //断言连接成功
     srcDBConfigPage.assertConnDB();
+    //选择备份的租户
     srcDBConfigPage.selectBakTenant();
+    //断言数据库版本信息出现
     srcDBConfigPage.assertDBVersion();
+    //点击下一步按钮
     srcDBConfigPage.clickNextStepButton();
 
     //输入备库信息
@@ -54,23 +62,41 @@ describe("module：OceanBase 数据保护", () => {
   });
 
   it("case 2: 配置租户", () => {
+    //点击OB的数据保护
     srcDBConfigPage.clickOceanBase();
+    //点击备库列表的更多按钮
     configTenantPage.clickMoreButton();
+    //断言出现配置租户窗口
     configTenantPage.assertAccessTenantWindow();
+    //点击配置租户
     configTenantPage.clickConfigTenant();
+    //断言进入配置租户表单窗口
     configTenantPage.assertAccessTenantInfo();
+    //增加CPU数量， 需要一个参数int, 默认为1
     configTenantPage.clickCPUAddButton();
+    //增加大小，需要一个参数int，默认为3
     configTenantPage.clickMemoryAddButton();
+    //增加logsize大小，需要一个参数int，默认为2
     configTenantPage.clickLogSizeDiskAddButton();
+    //输入租户名
     configTenantPage.typeTenantName();
+    //输入租户密码
     configTenantPage.typeTenantPassword();
+    //输入备份集路径
     configTenantPage.typeSourcePath();
+    //输入备份路径参数
     configTenantPage.typeSourcePathArgs();
+    //点击保存按钮
     configTenantPage.clickSaveButton();
+    //点击自动执行
     configTenantPage.clickAutoExecButton();
+    //点击刷新状态
     configTenantPage.clickRefreshStatusButton();
-    configTenantPage.assertWaitForExec();
+    //断言出现待同步状态
+    configTenantPage.assertWaitForSync();
+    //点击启动同步按钮
     configTenantPage.clickStartSyncButton();
+    //点击完成
     configTenantPage.clickFinishButton();
 
   });

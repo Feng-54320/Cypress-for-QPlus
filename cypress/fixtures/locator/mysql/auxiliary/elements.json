@@ -1,0 +1,17 @@
+{
+  "mysql_panel": ":nth-child(3) > .nav__item--sub > :nth-child(1) > .nav__text",
+  "auxiliary_plan": ":nth-child(3) > .nav__item--sub > .nav > :nth-child(4) > .nav__link > .nav__text",
+  "create_plan_button": ".header-action > .ant-space > .ant-space-item > .ant-btn",
+  "plan_form": ".ant-modal-content",
+  "plan_name": "#auxiliary-plan-form_name",
+  "plan_description": "#auxiliary-plan-form_description",
+  "plan_target": ":nth-child(8) > :nth-child(3) > .ant-row > .ant-col-19 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+  "param_base": ".form-antd-inline-group > :nth-child(1) > .ant-select > .ant-select-selector > .ant-select-selection-item",
+  "param_cover": ":nth-child(2) > :nth-child(2) > .ant-select-selector > .ant-select-selection-item",
+  "param_read_write": ":nth-child(4) > .ant-select-selector > .ant-select-selection-item",
+  "db_scale": ":nth-child(1) > .ant-row > .ant-col-19 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+  "data_storage_add_button": ".ant-input-number-handler-up",
+  "net_address_pool": ":nth-child(4) > .ant-row > .ant-col-19 > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+  "extension_script": ":nth-child(10) > .ant-btn",
+  "save_button": ".ta-r > .ant-space > :nth-child(2) > .ant-btn > span"
+}

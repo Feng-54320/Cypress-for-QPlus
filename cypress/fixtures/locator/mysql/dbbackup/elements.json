@@ -1,0 +1,51 @@
+[
+  {
+    "mysql_panel": ":nth-child(3) > .nav__item--sub > :nth-child(1) > .nav__text",
+    "data_protect": ":nth-child(3) > .nav__item--sub > .nav > :nth-child(1) > .nav__link > .nav__text",
+    "create_bakDB": ".header-action > .ant-space > .ant-space-item > .ant-btn",
+
+    "mysql_ip": "#ip",
+    "mysql_port": "#port",
+    "mysql_managementUser": "#managementUser",
+    "mysql_managementPassword": "#managementPassword",
+    "mysql_transmissionUser": "#transmissionUser",
+    "mysql_transmissionPassword": "#transmissionPassword",
+    "mysql_conn": ".ant-form-item-control-input-content > .ant-btn > span",
+    "mysql_success": ".ant-notification-notice-message",
+    "full_database": ".ant-radio-wrapper-checked > :nth-child(2)",
+    "ssh_user": "#sshUser",
+    "ssh_password": "#sshPassword",
+    "ssh_port": "#sshPort",
+    "config_path": "#configPath",
+    "next_step": ":nth-child(2) > .ant-btn > span"
+  },
+  {
+    "bakDB_name": "#name",
+    "computer_box": "#computeInstanceUuid",
+    "computer_dropdown": ".ant-select-dropdown",
+    "node_selection": ":nth-child(4) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+    "address_pool": "#addressPoolUuid",
+    "data_zone": ":nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > .store_space_form > .store_space_form_item_input > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > .ant-input-number > .ant-input-number-input-wrap > .ant-input-number-input",
+    "data_zone_add": ":nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > .store_space_form > .store_space_form_item_input > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > [style=\"border-top-right-radius: 6px; border-bottom-right-radius: 6px;\"]",
+    "log_zone": ":nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > .store_space_form > .store_space_form_item_input > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > .ant-input-number > .ant-input-number-input-wrap > .ant-input-number-input",
+    "log_zone_add": ":nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > .store_space_form > .store_space_form_item_input > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > [style=\"border-top-right-radius: 6px; border-bottom-right-radius: 6px;\"]",
+    "data_compression":"#serverId",
+    "snapshot_SpaceSize":".error_info_input > .ant-form-item > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > .ant-input-number > .ant-input-number-input-wrap > .ant-input-number-input",
+    "submit_button":":nth-child(2) > .ant-btn",
+    "confirm_button":".ant-modal-footer > .ant-btn > span"
+  },
+  {
+    "more_button": ".ant-table-row > .ant-table-cell-fix-right > .ant-space-gap-row-small > :nth-child(5) > .ant-dropdown-trigger > .ant-space > :nth-child(1) > span",
+    "snapshot_name": "#createSnapshotSimpleModalForm_name",
+    "confirm_button": ":nth-child(2) > .ant-btn > span",
+    "snap_success": ".ant-notification-notice"
+  },
+  {
+    "db_name": "[data-row-key=\"e1d729443c134f35ab6cabee4bf8adde\"] > .ant-table-cell-fix-left-last > .ant-table-cell-content > [style=\"width: 100%;\"] > .db-name-link",
+    "backup_information": "#rc-tabs-1-tab-backup",
+    "create_snapshot": ":nth-child(2), > .ant-btn > span",
+    "confirm_button": ".ant-form-item-control-input-content > .ant-space > :nth-child(2) > .ant-btn > span",
+    "Snapshot_notice": ".ant-notification-notice-message",
+    "refresh_list": ".mb12, > .ant-space > :nth-child(1) > .ant-btn > :nth-child(2)"
+  }
+]

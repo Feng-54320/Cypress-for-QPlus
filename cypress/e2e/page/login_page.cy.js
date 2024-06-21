@@ -40,12 +40,7 @@ class LoginPage {
 
   //断言登录成功
   assertLogin() {
-    qAssert.assertText(
-      this.elements.qplus_control_panel,
-      "QPlus 控制台",
-      "be.visible",
-      "exist"
-    );
+    qAssert.assertTextExist(this.elements.qplus_control_panel, "QPlus 控制台");
   }
 }
 

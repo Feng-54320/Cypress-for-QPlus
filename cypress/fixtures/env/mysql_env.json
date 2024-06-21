@@ -1,0 +1,10 @@
+{
+  "ip": "10.10.98.14",
+  "port": "3306",
+  "managementUser": "root",
+  "managementPassword": "password",
+  "transmissionUser": "root",
+  "transmissionPassword": "password",
+  "ssh_password": "cljslrl0620",
+  "config_Path": "/etc/my.cnf"
+}

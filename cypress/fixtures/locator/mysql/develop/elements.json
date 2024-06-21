@@ -1,0 +1,16 @@
+{
+  "mysql_panel": ":nth-child(3) > .nav__item--sub > :nth-child(1) > .nav__text",
+  "develop_db": ":nth-child(3) > .nav__item--sub > .nav > :nth-child(3) > .nav__link > .nav__text",
+  "create_devdb_button": ".header-action > .ant-space > .ant-space-item > .ant-btn > span",
+  "devdb_name": "#name",
+  "src_bakdb": ":nth-child(4) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+  "select_net": "[style=\"display: flex;\"] > .item_box > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+  "select_IP": ".item_port_box > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+  "select_scale": ":nth-child(7) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+  "data_storage_add_button": ":nth-child(8) > .store_space_form_item_input > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > [style=\"border-top-right-radius: 6px; border-bottom-right-radius: 6px;\"]",
+  "redo_storage_add_button": ":nth-child(10) > .store_space_form_item_input > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > [style=\"border-top-right-radius: 6px; border-bottom-right-radius: 6px;\"]",
+  "select_snapshot": ".recover_time > :nth-child(3) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+  "confirm_button": ":nth-child(2) > .ant-btn > span",
+  "progress_log": "[style=\"padding: 10px 6px; min-height: 400px; max-height: 500px; overflow: auto; background-color: rgba(0, 0, 0, 0.89);\"]",
+  "log_confirm_button": ".ant-modal-footer > .ant-btn > span"
+}
