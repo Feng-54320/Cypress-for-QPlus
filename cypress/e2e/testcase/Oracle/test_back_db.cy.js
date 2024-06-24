@@ -59,6 +59,8 @@ describe("module：Oracle数据保护", () => {
   it("case 2: 执行手动操作文档", () => {
     //1. 点击oracle数据保护
     srcOracleInfo.clickOracle();
+    //断言创建成功
+    manualCommand.assertCreateFinish();
     //2. 点击更多按钮
     manualCommand.clickMore();
     //3. 获取tnsname文档内容
@@ -68,7 +70,7 @@ describe("module：Oracle数据保护", () => {
     //5. 获取数据同步文档内容
     manualCommand.getSyncDataText();
     //6. 执行脚本同步数据
-    cy.wait(15000)
+    cy.wait(15000);
     manualCommand.execSyncDataScript();
     //7. 获取修改log_archive_config配置文档
     manualCommand.getLogArchiveDest();
@@ -81,7 +83,7 @@ describe("module：Oracle数据保护", () => {
     manualCommand.execArchiveScript();
   });
 
-  it.only("case 3: 创建快照", () => {
+  it("case 3: 创建快照", () => {
     //1. 点击oracle数据保护
     srcOracleInfo.clickOracle();
     //2. 点击创建快照

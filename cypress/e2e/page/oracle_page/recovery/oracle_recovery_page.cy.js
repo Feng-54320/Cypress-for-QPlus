@@ -34,8 +34,8 @@ class RecoveryDBPage {
   }
 
   //输入快照库名
-  typeRecoveryDBName() {
-    cy.get(this.elements.recovery_db_name).type("AutoRCY_Time");
+  typeRecoveryDBName(name = "AutoRCY_Time") {
+    cy.get(this.elements.recovery_db_name).type(name);
   }
 
   //选择源备库

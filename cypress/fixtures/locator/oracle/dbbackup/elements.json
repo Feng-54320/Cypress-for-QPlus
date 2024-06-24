@@ -29,6 +29,8 @@
     "next_step_button": ":nth-child(2) > .ant-btn > span"
   },
   {
+    "progress_log": ".progress-log-modal__content",
+    "log_close_button": ".ant-modal-footer > .ant-btn > span",
     "manual_text": ".ant-modal-content",
     "more_button": ".ant-table-row > .ant-table-cell-fix-right > .ant-space-gap-row-small > :nth-child(5) > .ant-dropdown-trigger > .ant-space > :nth-child(1) > span",
     "tnsname_text": ":nth-child(3) > pre",

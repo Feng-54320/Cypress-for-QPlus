@@ -2,13 +2,13 @@ import qAssert from "../../../../support/qassert";
 import Utils from "../../../../support/utils";
 
 class AuxiliaryPlanPage {
-  constructor(oracleElements) {
-    this.elements = oracleElements;
+  constructor(Elements) {
+    this.elements = Elements;
   }
 
   //点击辅助计划
   clickOracle() {
-    cy.get(this.elements.oracle_panel).should("have.text", "Oracle").click();
+    cy.get(this.elements.gs_panel).should("have.text", "GaussDB").click();
     cy.get(this.elements.auxiliary_plan)
       .should("have.text", "辅助计划")
       .click();
@@ -36,11 +36,11 @@ class AuxiliaryPlanPage {
   }
 
   //选择目标
-  selectTargetBakDB(name = "Oracle 备库") {
+  selectTargetBakDB(name = "GaussDB 备库") {
     cy.get(this.elements.plan_target)
       .click()
       .within(() => {
-        cy.contains(name).click();
+        cy.contains("GaussDB 备库").click();
       });
   }
 
@@ -122,14 +122,6 @@ class AuxiliaryPlanPage {
       .then(() => {
         cy.contains(scale).click();
       });
-  }
-
-  //增加redo存储
-  clickRedoAddButton(times = 0) {
-    Utils.clickButtonMultipleTimes(
-      this.elements.redo_storage_add_button,
-      times
-    );
   }
 
   //增加数据存储

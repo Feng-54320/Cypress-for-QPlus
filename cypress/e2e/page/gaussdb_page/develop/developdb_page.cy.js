@@ -6,29 +6,29 @@ class DevelopDBPage {
     this.elements = obElements;
   }
 
-  //点击oracle的开发测试库
+  //点击开发测试库
   clickDevlopDB() {
-    cy.get(this.elements.oracle_panel).should("have.text", "Oracle").click();
+    cy.get(this.elements.gs_panel).should("have.text", "GaussDB").click();
     cy.get(this.elements.develop_db).should("have.text", "开发测试库").click();
   }
 
-  //断言恢复数据库按钮存在, 并点击
+  //断言创建开发测试库按钮存在, 并点击
   assertCreateDevelopDBButton() {
     qAssert.assertButtonYes(this.elements.create_devdb_button);
     cy.get(this.elements.create_devdb_button).click();
   }
 
   //输入开发测试库名称
-  typeDevelopDBName() {
-    cy.get(this.elements.devdb_name).type("AutoDevlopDB");
+  typeDevelopDBName(name = "AutoDevlopDB") {
+    cy.get(this.elements.devdb_name).type(name);
   }
 
   //选择源备库
-  selectSrcBakDB() {
+  selectSrcBakDB(name = "AutoTestGS") {
     cy.get(this.elements.src_bakdb)
       .click()
       .then(() => {
-        cy.contains("FengAutoTest").click();
+        cy.contains(name).click();
       });
   }
 
@@ -38,12 +38,15 @@ class DevelopDBPage {
   //选择ip分配方式
   selectIP() {}
 
-  //规格选择
-  selectDBScale() {
+  //选择规格
+  selectDBScale(cpu = 2, memory = 4) {
+    cy.log("选择备库规格");
+    let scale = cpu + "Core" + memory + "Gi";
+
     cy.get(this.elements.select_scale)
       .click()
       .then(() => {
-        cy.contains("2Core4Gi").click();
+        cy.contains(scale).click();
       });
   }
 

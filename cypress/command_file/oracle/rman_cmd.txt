@@ -1,1 +1,1 @@
-rman target 'sys/"oracle"' auxiliary 'sys/"oracle"@master1BKee1'
+rman target 'sys/"oracle"' auxiliary 'sys/"oracle"@master1BK432'

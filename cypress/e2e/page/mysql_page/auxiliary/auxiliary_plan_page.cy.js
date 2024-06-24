@@ -9,7 +9,9 @@ class AuxiliaryPlanPage {
   //点击辅助计划
   clickMysql() {
     cy.get(this.elements.mysql_panel).should("have.text", "MySQL").click();
-    cy.get(this.elements.auxiliary_plan).should("have.text", "辅助计划").click();
+    cy.get(this.elements.auxiliary_plan)
+      .should("have.text", "辅助计划")
+      .click();
   }
 
   //断言创建计划按钮存在并点击
@@ -24,17 +26,17 @@ class AuxiliaryPlanPage {
   }
 
   //输入辅助计划名称
-  typePlanName() {
-    cy.get(this.elements.plan_name).type("AutoPlanTest");
+  typePlanName(name = "AutoPlanTest") {
+    cy.get(this.elements.plan_name).type(name);
   }
 
   //输入计划描述
-  typePlanDescription() {
-    cy.get(this.elements.plan_description).type("Auto test description");
+  typePlanDescription(text = "Auto test description") {
+    cy.get(this.elements.plan_description).type(text);
   }
 
   //选择目标
-  selectTargetBakDB() {
+  selectTargetBakDB(name = "MySQL 备库") {
     cy.get(this.elements.plan_target)
       .click()
       .within(() => {
@@ -50,63 +52,65 @@ class AuxiliaryPlanPage {
 
   //运行时间
   clickRunTime(time = "全选") {
-    //取消默认的23:00
-    cy.contains("23:00").click()
-    //time参数可选: [全选, 反选, 上午, 下午, 晚上], 或者自定义时间
-    if (time === "全选") {
-      cy.contains("全选").click();
-    } else if (time === "反选") {
-      cy.contains("反选").click();
-    } else if (time === "上午") {
-      cy.contains("08:00").click();
-      cy.contains("09:00").click();
-      cy.contains("10:00").click();
-      cy.contains("11:00").click();
-      cy.contains("12:00").click();
-    } else if (time === "下午") {
-      cy.contains("13:00").click();
-      cy.contains("14:00").click();
-      cy.contains("15:00").click();
-      cy.contains("16:00").click();
-      cy.contains("17:00").click();
-      cy.contains("18:00").click();
-      cy.contains("19:00").click();
-    } else if (time === "晚上") {
-      cy.contains("19:00").click();
-      cy.contains("20:00").click();
-      cy.contains("21:00").click();
-      cy.contains("22:00").click();
+    cy.get(this.elements.plan_form).within(() => {
+      //取消默认的23:00
       cy.contains("23:00").click();
-    } else {
-      cy.contains(time).click();
-    }
+      //time参数可选: [全选, 反选, 上午, 下午, 晚上], 或者自定义时间
+      if (time === "全选") {
+        cy.contains("全选").click();
+      } else if (time === "反选") {
+        cy.contains("反选").click();
+      } else if (time === "上午") {
+        cy.contains("08:00").click();
+        cy.contains("09:00").click();
+        cy.contains("10:00").click();
+        cy.contains("11:00").click();
+        cy.contains("12:00").click();
+      } else if (time === "下午") {
+        cy.contains("13:00").click();
+        cy.contains("14:00").click();
+        cy.contains("15:00").click();
+        cy.contains("16:00").click();
+        cy.contains("17:00").click();
+        cy.contains("18:00").click();
+        cy.contains("19:00").click();
+      } else if (time === "晚上") {
+        cy.contains("19:00").click();
+        cy.contains("20:00").click();
+        cy.contains("21:00").click();
+        cy.contains("22:00").click();
+        cy.contains("23:00").click();
+      } else {
+        cy.contains(time).click();
+      }
+    });
   }
 
-  //选择计划参数基于什么
+  //选择计划参数基于
   selectParamsBase(base = "最新") {
-    cy.get(this.elements.param_base)
-      .click()
-      .then(() => {
-        cy.contains(base).should("be.visible").click({ force: true });
-      });
+    cy.get(this.elements.param_base).click();
+    cy.get(this.elements.param_base_select)
+      .contains(base)
+      .should("be.visible")
+      .click();
   }
 
   //选择参数轮替 or 连续
   selectParamsCover(cover = "轮替") {
-    cy.get(this.elements.param_cover)
-      .click()
-      .then(() => {
-        cy.contains(cover).should("be.visible").click({ force: true });
-      });
+    cy.get(this.elements.param_cover).click();
+    cy.get(this.elements.param_cover_select)
+      .contains(cover)
+      .should("be.visible")
+      .click();
   }
 
   //选择参数读写
   selectParamsReadWrite(readWrite = "只读") {
-    cy.get(this.elements.param_read_write)
-      .click()
-      .then(() => {
-        cy.contains(readWrite).should("be.visible").click({ force: true });
-      });
+    cy.get(this.elements.param_read_write).click();
+    cy.get(this.elements.param_read_write_select)
+      .contains(readWrite)
+      .should("be.visible")
+      .click();
   }
 
   //选择主机规格

@@ -8,7 +8,7 @@ class AuxiliaryPlanPage {
 
   //点击辅助计划
   clickOracle() {
-    cy.get(this.elements.oracle_panel).should("have.text", "Oracle").click();
+    cy.get(this.elements.ob_panel).should("have.text", "OceanBase").click();
     cy.get(this.elements.auxiliary_plan)
       .should("have.text", "辅助计划")
       .click();
@@ -36,7 +36,7 @@ class AuxiliaryPlanPage {
   }
 
   //选择目标
-  selectTargetBakDB(name = "Oracle 备库") {
+  selectTargetBakDB(name = "OceanBase 备库") {
     cy.get(this.elements.plan_target)
       .click()
       .within(() => {

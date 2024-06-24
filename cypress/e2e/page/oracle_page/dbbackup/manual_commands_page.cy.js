@@ -7,6 +7,14 @@ class ManualCommandPage {
   }
 
   //点击备库列表的更多按钮,进入手动操作文档
+  assertCreateFinish() {
+    cy.get(this.elements.more_button).eq(0).click();
+    cy.contains("创建进度").click();
+    cy.get(this.elements.progress_log).contains("[SUCCESS]");
+    cy.get(this.elements.log_close_button).click();
+  }
+
+  //点击备库列表的更多按钮,进入手动操作文档
   clickMore() {
     //cy.contains('更多').click();
     cy.get(this.elements.more_button).eq(0).click();
