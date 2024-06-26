@@ -25,6 +25,10 @@ class qAssert {
       .should("be.disabled");
   }
 
+  //断言备库状态
+  assertBakDBStatus(element, status) {
+    cy.get(element).eq(0).contains(status);
+  }
 }
 
 export default new qAssert();

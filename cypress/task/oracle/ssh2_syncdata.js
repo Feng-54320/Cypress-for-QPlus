@@ -21,8 +21,6 @@ async function main() {
     const oracleEnv = JSON.parse(oracleJson);
     const rmanContent = rmanCmd;
     const duplicateContent = duplicateCmd;
-    //console.log("Rman Content is: " + rmanContent);
-    //console.log("Duplicate Content is: " + duplicateContent);
 
     const conn = new Client();
     conn

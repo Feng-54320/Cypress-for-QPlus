@@ -98,6 +98,7 @@ class SrcOracleInfo {
     cy.get(this.elements.DBlicense).click();
   }
 
+
   //点击下一步
   clickNextStep() {
     cy.get(this.elements.next_step_button).click();

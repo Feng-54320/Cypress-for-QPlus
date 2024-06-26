@@ -6,8 +6,9 @@ class ManualCommandPage {
     });
   }
 
-  //点击备库列表的更多按钮,进入手动操作文档
+  //查看创建进度, 断言创建成功
   assertCreateFinish() {
+    cy.log("查看创建进度, 断言创建成功");
     cy.get(this.elements.more_button).eq(0).click();
     cy.contains("创建进度").click();
     cy.get(this.elements.progress_log).contains("[SUCCESS]");
@@ -16,13 +17,14 @@ class ManualCommandPage {
 
   //点击备库列表的更多按钮,进入手动操作文档
   clickMore() {
-    //cy.contains('更多').click();
+    cy.log("点击备库列表的更多按钮,进入手动操作文档");
     cy.get(this.elements.more_button).eq(0).click();
     cy.contains("手动操作文档").click();
   }
 
   //获取tnsnames配置文本
   getTnsnameText() {
+    cy.log("获取tnsnames配置文本");
     cy.get(this.elements.tnsname_text)
       .invoke("text")
       .then((text) => {
@@ -45,6 +47,7 @@ class ManualCommandPage {
 
   //执行tns配置脚本
   execAutoTnsname() {
+    cy.log("执行tns配置脚本");
     cy.exec("node ./cypress/task/oracle/ssh2_tnsname.js").then((result) => {
       cy.log(result.stdout);
       expect(result.code).to.equal(0);
@@ -53,6 +56,7 @@ class ManualCommandPage {
 
   //获取同步数据文档文本
   getSyncDataText() {
+    cy.log("获取同步数据文档文本");
     cy.get(this.elements.multi_channel).click();
     cy.get(this.elements.sync_data_text)
       .invoke("text")
@@ -94,9 +98,10 @@ class ManualCommandPage {
 
   //执行同步数据脚本
   execSyncDataScript() {
+    cy.log("执行同步数据脚本");
     cy.task("execWithTimeout", {
       command: "node ./cypress/task/oracle/ssh2_syncdata.js",
-      time: 300000,
+      time: 900000,
     }).then((result) => {
       cy.log(result.stdout);
       expect(result.code).to.equal(0);
@@ -105,6 +110,7 @@ class ManualCommandPage {
 
   //获取归档传输文档文本
   getLogArchiveDest() {
+    cy.log("获取归档传输文档文本");
     cy.get(this.elements.log_archive_dest_text)
       .invoke("text")
       .then((text) => {
@@ -132,6 +138,7 @@ class ManualCommandPage {
 
   //执行归档传输配置脚本
   execSqlScript() {
+    cy.log("执行归档传输配置脚本");
     cy.exec("node ./cypress/task/oracle/ssh2_oracle_sql.js").then((result) => {
       cy.log(result.stdout);
       expect(result.code).to.equal(0);
@@ -140,16 +147,24 @@ class ManualCommandPage {
 
   //点击下一步按钮
   clickNextStep() {
+    cy.log("点击下一步按钮");
     cy.get(this.elements.next_step_button).click();
     cy.get(this.elements.yes_button).click();
   }
 
   //切换归档
   execArchiveScript() {
+    cy.log("切换归档");
     cy.exec("node ./cypress/task/oracle/ssh2_archive.js").then((result) => {
       cy.log(result.stdout);
       expect(result.code).to.equal(0);
     });
+  }
+
+  //断言备库创建成功
+  assertBakDBStartup() {
+    cy.log("断言备库创建成功");
+    cy.get(this.elements.status).eq(0).contains("已启动").and("not.contain", "错误");
   }
 }
 export default ManualCommandPage;

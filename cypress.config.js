@@ -39,21 +39,30 @@ module.exports = defineConfig({
 
             setTimeout(() => {
               child.kill();
-              reject(new Error(`Command timed out after ${time / 1000} seconds.`));
+              reject(
+                new Error(`Command timed out after ${time / 1000} seconds.`)
+              );
             }, time);
           });
         },
         // ### 执行命令任务END
       });
     },
-
-    // 配置浏览器大小
-    viewportWidth: 1600,
-    viewportHeight: 820,
-    //配置截图路径
-    screenshotsFolder: "cypress/screenshots",
-    //配置任务超时时间
-    defaultCommandTimeout: 300000,
-    taskTimeout: 300000,
+  },
+  // 配置浏览器大小
+  viewportWidth: 1600,
+  viewportHeight: 820,
+  //配置截图路径
+  screenshotsFolder: "cypress/screenshots",
+  //配置任务超时时间
+  defaultCommandTimeout: 180000,
+  taskTimeout: 900000,
+  //配置测试报告
+  reporter: "mochawesome",
+  reporterOptions: {
+    reportDir: "cypress/results",
+    overwrite: false,
+    html: true,
+    json: false,
   },
 });

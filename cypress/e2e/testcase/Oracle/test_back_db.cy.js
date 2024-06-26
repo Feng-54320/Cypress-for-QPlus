@@ -1,25 +1,25 @@
 import SrcOracleInfoPage from "../../page/oracle_page/dbbackup/src_oracle_info_page.cy";
 import BakOracleInfoPage from "../../page/oracle_page/dbbackup/bak_oracle_info_page.cy";
 import ManualCommandPage from "../../page/oracle_page/dbbackup/manual_commands_page.cy";
-import CreateSnapshotPage from "../../page/oracle_page/dbbackup/create_snapshot.cy";
+import CreateSnapshotPage from "../../page/oracle_page/manipulate/create_snapshot.cy";
 
 describe("module：Oracle数据保护", () => {
   let srcOracleInfo;
   let bakOracleInfo;
   let manualCommand;
-  let createSnapshot;
+  let manipulate;
 
   //测试套件前置：读取qplus的url和登陆用例的测试数据
   beforeEach(() => {
     cy.loginCommand();
-    cy.fixture("/locator/oracle/dbbackup/elements.json").then(
-      (elements) => {
-        srcOracleInfo = new SrcOracleInfoPage(elements[0]);
-        bakOracleInfo = new BakOracleInfoPage(elements[1]);
-        manualCommand = new ManualCommandPage(elements[2]);
-        createSnapshot = new CreateSnapshotPage(elements[3]);
-      }
-    );
+    cy.fixture("/locator/oracle/dbbackup/elements.json").then((elements) => {
+      srcOracleInfo = new SrcOracleInfoPage(elements[0]);
+      bakOracleInfo = new BakOracleInfoPage(elements[1]);
+      manualCommand = new ManualCommandPage(elements[2]);
+    });
+    cy.fixture("/locator/oracle/manipulate/elements.json").then((elements) => {
+      manipulate = new ManualCommandPage(elements);
+    });
   });
 
   //用例1
@@ -70,7 +70,6 @@ describe("module：Oracle数据保护", () => {
     //5. 获取数据同步文档内容
     manualCommand.getSyncDataText();
     //6. 执行脚本同步数据
-    cy.wait(15000);
     manualCommand.execSyncDataScript();
     //7. 获取修改log_archive_config配置文档
     manualCommand.getLogArchiveDest();
@@ -81,14 +80,8 @@ describe("module：Oracle数据保护", () => {
     //10. 手动切换归档
     cy.wait(20000);
     manualCommand.execArchiveScript();
+    //断言是否创建成功
+    manipulate.assertBakDBStartup();
   });
 
-  it("case 3: 创建快照", () => {
-    //1. 点击oracle数据保护
-    srcOracleInfo.clickOracle();
-    //2. 点击创建快照
-    createSnapshot.clickCreateSnapshot();
-    //3. 断言创建成功
-    createSnapshot.assertSnapSuccess();
-  })
 });

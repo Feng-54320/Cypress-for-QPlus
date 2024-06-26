@@ -8,16 +8,20 @@ class BakOracleInfoPage {
     });
   }
   //输入备库名
-  typeBakDBName() {
-    cy.get(this.elements.bakDB_name).type("FengAutoTest");
+  typeBakDBName(name = "AutoTestOrac") {
+    cy.log("输入备库名");
+    cy.get(this.elements.bakDB_name).type(name);
   }
 
   //选择备库规格
-  selectComputerInstance() {
-    cy.get(this.elements.computer_box)
+  selectComputerInstance(cpu = 2, memory = 4) {
+    cy.log("选择备库规格");
+    let scale = cpu + "Core" + memory + "Gi";
+
+    cy.get(this.elements.select_scale)
       .click()
       .then(() => {
-        cy.get(this.elements.computer_dropdown).contains("2Core4Gi").click();
+        cy.contains(scale).click();
       });
   }
 
@@ -25,23 +29,26 @@ class BakOracleInfoPage {
   selectAddressPool() {}
 
   //清空redo空间, 恢复成1
-  typeRedoZone() {
-    cy.get(this.elements.redo_zone).clear();
+  typeRedoZone(times = 0) {
+    cy.log("增加redo空间");
+    Utils.clickButtonMultipleTimes(this.elements.redo_add_button, times);
   }
 
   //清空data空间, 再点两次加号按钮
-  typeDataZone() {
-    cy.get(this.elements.data_zone).clear();
-    Utils.clickButtonMultipleTimes(this.elements.data_zone_add, 2);
+  typeDataZone(times = 8) {
+    cy.log("增加数据卷空间");
+    Utils.clickButtonMultipleTimes(this.elements.data_add_button, times);
   }
 
   //清空archive空间, 恢复成1
-  typeArchiveZone() {
-    cy.get(this.elements.archive_zone).clear();
+  typeArchiveZone(times = 0) {
+    cy.log("增加archive空间");
+    Utils.clickButtonMultipleTimes(this.elements.archive_add_button, times);
   }
 
   //点击下一步
   clickNextStep() {
+    cy.log("点击下一步");
     cy.get(this.elements.next_step_button).click();
   }
 }

@@ -1,1 +1,1 @@
-alter system set LOG_ARCHIVE_DEST_5='service=master1BK432 db_unique_name=master1BK432 reopen=30 compression=enable valid_for=(all_logfiles, primary_role)';
+alter system set LOG_ARCHIVE_DEST_22='service=master1BK3aa db_unique_name=master1BK3aa reopen=30 compression=enable valid_for=(all_logfiles, primary_role)';
