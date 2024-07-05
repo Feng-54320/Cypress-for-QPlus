@@ -5,7 +5,7 @@
 
   "recovery_db_name": "#basic_name",
   "src_bak_db": ":nth-child(5) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
-  "scale_input": ":nth-child(8) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
+  "select_scale": ":nth-child(8) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
   "data_storage_add_button": ":nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .store_space_form_item_input > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > [style=\"border-top-right-radius: 6px; border-bottom-right-radius: 6px;\"]",
   "redo_storage_add_button": ":nth-child(10) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .store_space_form_item_input > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > [style=\"border-top-right-radius: 6px; border-bottom-right-radius: 6px;\"]",
   "time_limit": ":nth-child(12) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-picker",

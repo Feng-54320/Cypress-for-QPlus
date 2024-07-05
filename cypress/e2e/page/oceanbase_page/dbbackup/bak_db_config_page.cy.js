@@ -12,7 +12,7 @@ class BakDbConfigPage {
   }
 
   //选择备库规格
-  selectScale(cpu = 8, memory = 8) {
+  selectScale(cpu = 6, memory = 8) {
     cy.log("选择备库规格");
     let scale = cpu + "Core" + memory + "Gi";
 
@@ -30,7 +30,7 @@ class BakDbConfigPage {
   selectNet() {}
 
   //增加数据卷空间
-  clickDataVolumeAddButton(times = 13) {
+  clickDataVolumeAddButton(times = 0) {
     cy.log("增加数据卷空间");
     utils.clickButtonMultipleTimes(
       this.elements.data_storage_add_button,
@@ -51,7 +51,7 @@ class BakDbConfigPage {
   }
 
   //增加快照空间
-  clickSnapZoneAddButton(times = 9) {
+  clickSnapZoneAddButton(times = 0) {
     cy.log("增加快照空间");
     utils.clickButtonMultipleTimes(
       this.elements.snapshot_zone_add_button,
@@ -83,7 +83,7 @@ class BakDbConfigPage {
   }
 
   //增加DataFileSize
-  clickDataFileSizeAddButton(times = 7) {
+  clickDataFileSizeAddButton(times = 0) {
     cy.log("增加DataFileSize");
     utils.clickButtonMultipleTimes(
       this.elements.data_file_size_add_button,
@@ -92,7 +92,7 @@ class BakDbConfigPage {
   }
 
   //增加LogDiskSize
-  clickLogDiskSizeAddButton(times = 7) {
+  clickLogDiskSizeAddButton(times = 0) {
     cy.log("增加LogDiskSize");
     utils.clickButtonMultipleTimes(
       this.elements.log_disk_size_add_button,
@@ -110,6 +110,10 @@ class BakDbConfigPage {
   //断言创建成功
   assertCreateBakDBSuccess() {
     cy.log("断言创建成功");
+    cy.contains("创建主库备份集");
+  }
+
+  assertGetManualDoc(){
     cy.contains("创建主库备份集");
   }
 

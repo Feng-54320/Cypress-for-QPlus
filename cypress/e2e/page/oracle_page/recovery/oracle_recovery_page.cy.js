@@ -39,20 +39,24 @@ class RecoveryDBPage {
   }
 
   //选择源备库
-  selectSrcBakDB() {
+  selectSrcBakDB(name = "AutoTestOrac") {
     cy.get(this.elements.src_bak_db)
       .click()
       .then(() => {
-        cy.contains("FengAutoTest").click();
+        cy.contains(name).click();
       });
   }
 
+
   //选择规格
-  selectSnapDBScale() {
-    cy.get(this.elements.scale_input)
+  selectSnapDBScale(cpu = 2, memory = 4) {
+    cy.log("选择备库规格");
+    let scale = cpu + "Core" + memory + "Gi";
+
+    cy.get(this.elements.select_scale)
       .click()
       .then(() => {
-        cy.contains("2Core4Gi").click();
+        cy.contains(scale).click();
       });
   }
 
@@ -73,22 +77,27 @@ class RecoveryDBPage {
   }
 
   getTimeLimit() {
-    cy.get(this.elements.time_limit).invoke("text").then((text) =>{
+    cy.get(this.elements.time_limit)
+      .invoke("text")
+      .then((text) => {
         cy.log(text);
-    })
+      });
   }
 
-  clickConfirmButton(){
+  clickConfirmButton() {
     cy.get(this.elements.confirm_button).click();
   }
 
-  assertCreateRCYDBSuccess(){
+  assertCreateRCYDBSuccess() {
     cy.get(this.elements.progress_log).contains("SUCCESS");
   }
 
-  clickLogConfirmButton(){
+  clickLogConfirmButton() {
     cy.get(this.elements.log_confirm_button).click();
   }
 
+  assertSnapshotDBStatus(){
+    cy.get(this.elements.status).contains("已启动");
+  }
 }
 export default RecoveryDBPage;

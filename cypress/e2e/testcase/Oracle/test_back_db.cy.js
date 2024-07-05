@@ -1,7 +1,6 @@
 import SrcOracleInfoPage from "../../page/oracle_page/dbbackup/src_oracle_info_page.cy";
 import BakOracleInfoPage from "../../page/oracle_page/dbbackup/bak_oracle_info_page.cy";
 import ManualCommandPage from "../../page/oracle_page/dbbackup/manual_commands_page.cy";
-import CreateSnapshotPage from "../../page/oracle_page/manipulate/create_snapshot.cy";
 
 describe("module：Oracle数据保护", () => {
   let srcOracleInfo;
@@ -47,11 +46,11 @@ describe("module：Oracle数据保护", () => {
     //11. 选择规格
     bakOracleInfo.selectComputerInstance();
     //12. 输入redo空间大小
-    //bakOracleInfo.typeRedoZone();
+    bakOracleInfo.typeRedoZone(1);
     //13. 输入数据空间大小
-    bakOracleInfo.typeDataZone();
+    bakOracleInfo.typeDataZone(5);
     //14. 输入归档空间大小
-    //bakOracleInfo.typeArchiveZone();
+    bakOracleInfo.typeArchiveZone(1);
     //15. 点击下一步
     bakOracleInfo.clickNextStep();
   });

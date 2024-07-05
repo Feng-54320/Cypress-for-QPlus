@@ -22,15 +22,13 @@ describe("module：OceanBase数据恢复", () => {
     //4. 点击时间点恢复
     recoveryDBPage.clickTimeRecovery();
     //5. 输入历史数据库名称
-    recoveryDBPage.typeRecoveryDBName();
+    recoveryDBPage.typeRecoveryDBName("AutoTestOB123_!@#$");
     //6. 选择源备库
     recoveryDBPage.selectSrcBakDB();
     //7. 选择快照库规模
     recoveryDBPage.selectSnapDBScale();
-    //8. 增加数据存储上限, 该函数需要一个参数Times, 默认为0, 参数为几就是点击+号按钮几次
-    recoveryDBPage.clickDataStoraAddButton(1);
-    //9. 增加redo存储上限, 该函数需要一个参数Times, 默认为0, 参数为几就是点击+号按钮几次
-    //recoveryDBPage.clickRedoAddButton();
+    //8. 增加数据存储上限, 该函数需要一个参数Times, 默认为9, 参数为几就是点击+号按钮几次
+    recoveryDBPage.clickDataStoraAddButton();
     //10. 获取时间点范围
     recoveryDBPage.getTimeLimit();
     //11. 点击确认按钮

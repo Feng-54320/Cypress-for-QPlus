@@ -28,7 +28,7 @@ class DevelopDBPage {
     cy.get(this.elements.src_bakdb)
       .click()
       .then(() => {
-        cy.contains(name).click();
+        cy.contains(name).eq(0).click();
       });
   }
 
@@ -51,7 +51,7 @@ class DevelopDBPage {
   }
 
   //增加数据存储上限
-  clickDataStoraAddButton(times = 0) {
+  clickDataStoraAddButton(times = 9) {
     Utils.clickButtonMultipleTimes(
       this.elements.data_storage_add_button,
       times
@@ -72,11 +72,11 @@ class DevelopDBPage {
   }
 
   //选择恢复备份点
-  selectSnapshot() {
+  selectSnapshot(name = "AutoSnapshot") {
     cy.get(this.elements.select_snapshot)
       .click()
       .then(() => {
-        cy.contains("定时快照").click();
+        cy.contains(name).click();
       });
   }
 

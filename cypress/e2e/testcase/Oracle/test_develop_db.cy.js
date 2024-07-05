@@ -27,8 +27,8 @@ describe("module：Oracle开发测试库", () => {
     developDBPage.clickDataStoraAddButton();
     //7. 增加redo存储上限, 该函数需要一个参数Times, 默认为0, 参数为几就是点击+号按钮几次
     developDBPage.clickRedoAddButton();
-    //8. 选择读写方式, 该函数需要一个参数: [可读写, 已读]
-    developDBPage.clickReadWrite("只读");
+    //8. 选择读写方式, 该函数需要一个参数: [可读写, 已读], 默认可读写
+    developDBPage.clickReadWrite();
     //8. 选择恢的备份点
     developDBPage.selectSnapshot();
     //9. 点击确认按钮

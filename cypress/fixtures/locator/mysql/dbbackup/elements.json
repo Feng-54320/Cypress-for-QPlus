@@ -21,8 +21,8 @@
   },
   {
     "bakDB_name": "#name",
-    "computer_box": "#computeInstanceUuid",
-    "computer_dropdown": ".ant-select-dropdown",
+    "select_scale": "#computeInstanceUuid",
+    "select_scale_dropdown": ".ant-select-dropdown",
     "node_selection": ":nth-child(4) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item",
     "address_pool": "#addressPoolUuid",
     "data_zone": ":nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > .store_space_form > .store_space_form_item_input > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ant-form-item > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > .ant-input-number > .ant-input-number-input-wrap > .ant-input-number-input",
@@ -32,7 +32,8 @@
     "data_compression":"#serverId",
     "snapshot_SpaceSize":".error_info_input > .ant-form-item > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .input_number_box > .ant-space > .ant-space-item > .ant-space-compact > .ant-input-number > .ant-input-number-input-wrap > .ant-input-number-input",
     "submit_button":":nth-child(2) > .ant-btn",
-    "confirm_button":".ant-modal-footer > .ant-btn > span"
+    "confirm_button":".ant-modal-footer > .ant-btn > span",
+    "progress_log": "[style=\"padding: 10px 6px; min-height: 400px; max-height: 500px; overflow: auto; background-color: rgba(0, 0, 0, 0.89);\"]"
   },
   {
     "more_button": ".ant-table-row > .ant-table-cell-fix-right > .ant-space-gap-row-small > :nth-child(5) > .ant-dropdown-trigger > .ant-space > :nth-child(1) > span",

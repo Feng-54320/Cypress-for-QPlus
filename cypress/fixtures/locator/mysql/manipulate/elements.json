@@ -1,0 +1,14 @@
+{
+  "more_button": ".ant-table-row > .ant-table-cell-fix-right > .ant-space-gap-row-small > :nth-child(5) > .ant-dropdown-trigger > .ant-space > :nth-child(1) > span",
+  "snapshot_name": "#createSnapshotSimpleModalForm_name",
+  "confirm_button": ":nth-child(2) > .ant-btn > span",
+  "snap_success": ".ant-notification-notice",
+  "bakdb_status": ".ant-table-row > :nth-child(7) > .signal-icon2 > .text-status",
+  "close_bakdb_button": ".ant-table-row > .ant-table-cell-fix-right > .ant-space-gap-row-small > :nth-child(3) > .ant-btn > span",
+  "startup_bakdb_button": ".ant-table-row > .ant-table-cell-fix-right > .ant-space-gap-row-small > :nth-child(1) > .ant-btn > span",
+  "close_confirm_button": ".ant-popconfirm-buttons > .ant-btn-primary > span",
+  "snapshot_db_status": ".ant-table-row > :nth-child(5) > .signal-icon2 > .text-status",
+  "dev_test_db_status": ".ant-table-row > :nth-child(6) > .signal-icon2 > .text-status",
+  "close_snapshot_db_button": ".ant-table-row > .ant-table-cell-fix-right > .ant-space-gap-row-small > :nth-child(3) > .ant-btn > span",
+  "startup_snapshot_db_button": ".ant-table-row > .ant-table-cell-fix-right > .ant-space-gap-row-small > :nth-child(1) > .ant-btn > span"
+}

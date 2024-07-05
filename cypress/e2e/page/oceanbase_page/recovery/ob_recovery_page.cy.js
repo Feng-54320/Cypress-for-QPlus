@@ -34,8 +34,8 @@ class RecoveryDBPage {
   }
 
   //输入快照库名
-  typeRecoveryDBName() {
-    cy.get(this.elements.recovery_db_name).type("AutoRCY_Time");
+  typeRecoveryDBName(name = "AutoRCY_Time") {
+    cy.get(this.elements.recovery_db_name).type(name);
   }
 
   //选择源备库
@@ -43,12 +43,12 @@ class RecoveryDBPage {
     cy.get(this.elements.src_bak_db)
       .click()
       .then(() => {
-        cy.contains(name).click();
+        cy.contains(name).eq(0).click();
       });
   }
 
   //选择规格
-  selectSnapDBScale(cpu = 8, memory = 8) {
+  selectSnapDBScale(cpu = 6, memory = 8) {
     cy.log("选择备库规格");
     let scale = cpu + "Core" + memory + "Gi";
 
@@ -60,7 +60,7 @@ class RecoveryDBPage {
   }
 
   //增加数据存储上限
-  clickDataStoraAddButton(times = 0) {
+  clickDataStoraAddButton(times = 9) {
     Utils.clickButtonMultipleTimes(
       this.elements.data_storage_add_button,
       times
@@ -99,6 +99,5 @@ class RecoveryDBPage {
   assertStartupSuccess() {
     cy.get(this.elements.status).eq(0).contains("已启动");
   }
-
 }
 export default RecoveryDBPage;

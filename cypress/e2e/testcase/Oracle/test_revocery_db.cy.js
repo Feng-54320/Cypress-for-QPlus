@@ -24,20 +24,22 @@ describe("module：Oracle数据恢复", () => {
     //5. 输入历史数据库名称
     recoveryDBPage.typeRecoveryDBName();
     //6. 选择源备库
-    recoveryDBPage.selectSrcBakDB();
+    recoveryDBPage.selectSrcBakDB("orcldg");
     //7. 选择快照库规模
     recoveryDBPage.selectSnapDBScale();
     //8. 增加数据存储上限, 该函数需要一个参数Times, 默认为0, 参数为几就是点击+号按钮几次
-    recoveryDBPage.clickDataStoraAddButton(1);
+    recoveryDBPage.clickDataStoraAddButton(5);
     //9. 增加redo存储上限, 该函数需要一个参数Times, 默认为0, 参数为几就是点击+号按钮几次
     recoveryDBPage.clickRedoAddButton();
     //10. 获取时间点范围
     recoveryDBPage.getTimeLimit();
     //11. 点击确认按钮
-    //recoveryDBPage.clickConfirmButton();
+    recoveryDBPage.clickConfirmButton();
     //12. 断言创建成功
     recoveryDBPage.assertCreateRCYDBSuccess();
     //13. 点击进度日志的确认按钮
     recoveryDBPage.clickLogConfirmButton();
+    //断言快照库已启动
+    recoveryDBPage.assertSnapshotDBStatus();
   });
 });

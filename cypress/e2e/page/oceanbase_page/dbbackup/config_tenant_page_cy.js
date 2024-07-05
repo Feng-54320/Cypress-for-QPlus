@@ -113,6 +113,7 @@ class ConfigTenantPage {
   //点击刷新状态
   clickRefreshStatusButton() {
     cy.log("点击刷新状态");
+    cy.get(this.elements.refresh_status_button).click();
     cy.wait(300000);
     cy.get(this.elements.refresh_status_button).click();
   }
@@ -120,6 +121,8 @@ class ConfigTenantPage {
   //断言待同步
   assertWaitForSync() {
     cy.log("断言待同步");
+    cy.get(this.elements.refresh_status_button).click();
+    qAssert.assertTextExist(this.elements.config_tenant_window_2, "待启动同步");
     cy.get(this.elements.refresh_status_button).click();
     qAssert.assertTextExist(this.elements.config_tenant_window_2, "待启动同步");
     cy.get(this.elements.refresh_status_button).click();

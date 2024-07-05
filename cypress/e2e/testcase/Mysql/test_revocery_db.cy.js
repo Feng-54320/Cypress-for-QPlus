@@ -24,10 +24,10 @@ describe("module：MySQl数据恢复", () => {
     //5. 输入历史数据库名称
     recoveryDBPage.typeRecoveryDBName();
     //6. 选择源备库
-    recoveryDBPage.selectSrcBakDB();
+    recoveryDBPage.selectSrcBakDB("AutoTest");
     //7. 选择快照库规模
     recoveryDBPage.selectSnapDBScale();
-    //8. 增加数据存储上限, 该函数需要一个参数Times, 默认为0, 参数为几就是点击+号按钮几次
+    //8. 增加数据存储上限, 该函数需要一个参数Times, 默认为2, 参数为几就是点击+号按钮几次
     recoveryDBPage.clickDataStoraAddButton(2);
     //10. 获取时间点范围
     recoveryDBPage.getTimeLimit();

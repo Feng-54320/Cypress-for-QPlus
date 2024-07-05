@@ -1,11 +1,9 @@
 import SrcMysqlInfoPage from "../../page/mysql_page/dbbackup/src_mysql_info_page.cy.js";
 import BakMysqlInfoPage from "../../page/mysql_page/dbbackup/bak_mysql_info_page.cy";
-import CreateSnapshotPage from "../../page/mysql_page/dbbackup/create_snapshot.cy";
 
 context("module：验证登录功能", () => {
   let srcMysqlInfo;
   let bakMysqlInfo;
-  let createSnapshot;
 
   //测试套件前置：读取qplus的url和登陆用例的测试数据
   beforeEach(() => {
@@ -13,13 +11,12 @@ context("module：验证登录功能", () => {
     cy.fixture("/locator/mysql/dbbackup/elements.json").then((elements) => {
       srcMysqlInfo = new SrcMysqlInfoPage(elements[0]);
       bakMysqlInfo = new BakMysqlInfoPage(elements[1]);
-      createSnapshot = new CreateSnapshotPage(elements[2]);
     });
   });
 
   //用例1
   it("case 1： 验证Mysql数据源配置创建备库确认成功", () => {
-    //1. 点击oracle数据保护
+    //1. 点击数据保护
     srcMysqlInfo.clickMysql();
     //2. 点击创建备库并输入主库信息
     srcMysqlInfo.createMysqlBakdb();
@@ -38,17 +35,10 @@ context("module：验证登录功能", () => {
     //9. 点击确认
     bakMysqlInfo.clickSubmit();
     cy.wait(20000);
+    //断言创建成功
+    bakMysqlInfo.assertCreateSuccess();
     //10. 点击确认
     bakMysqlInfo.clickConfirm();
   })
-  //用例2
-  it("case 2: 创建快照", () => {
-    cy.wait(20000);
-    //1. 点击mysql数据保护
-    srcMysqlInfo.clickMysql();
-    //2. 点击创建快照
-    createSnapshot.clickCreateSnapshot();
-    //3. 断言创建成功
-    createSnapshot.assertSnapSuccess();
-  });
+
 });

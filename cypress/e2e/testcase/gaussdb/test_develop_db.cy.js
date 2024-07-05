@@ -1,6 +1,6 @@
 import DevelopDBPage from "../../page/gaussdb_page/develop/developdb_page.cy";
 
-describe("module：GS开发测试库", () => {
+describe("module：GS 开发测试库", () => {
   let developDBPage;
 
   //用例前置：读取qplus的url和登陆用例的测试数据
@@ -20,7 +20,7 @@ describe("module：GS开发测试库", () => {
     //3. 输入开发测试库名称
     developDBPage.typeDevelopDBName();
     //4. 选择源备库
-    developDBPage.selectSrcBakDB("gaussbak");
+    developDBPage.selectSrcBakDB("AutoTestGS");
     //5. 规格选择
     developDBPage.selectDBScale();
     //6. 增加数据存储上限, 该函数需要一个参数Times, 默认为0, 参数为几就是点击+号按钮几次

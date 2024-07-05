@@ -24,16 +24,16 @@ describe("module：Oracle辅助计划", () => {
     //5. 输入历史数据库名称
     auxiliaryPlanPage.typePlanDescription();
     //6. 选择源备库
-    auxiliaryPlanPage.selectTargetBakDB();
+    auxiliaryPlanPage.selectTargetBakDB("AutoTestOB123_!@#$");
     //7. 选择运行时间, 该函数需要参数,string类型, 默认'按周', 可选[按周, 按天]
     auxiliaryPlanPage.clickWeekOrDay("按天");
     //8. 增加数据存储上限, 该函数需要一个参数Time, string类型
     //参数可选: [全选, 反选, 上午, 下午, 晚上, 自定义时间比如: "18:00"] 默认为'全选'
-    auxiliaryPlanPage.clickRunTime("23:00");
+    auxiliaryPlanPage.clickRunTime();
     //9. 选择计划参数, 需要1个参数, string类型:
     // base = ["最新", "最早", "自定义(需要指定快照名)"]
     // 默认为: 最新, 轮替, 只读
-    auxiliaryPlanPage.selectParamsBase("最早");
+    auxiliaryPlanPage.selectParamsBase();
     //cover = ["轮替", "连续"];
     auxiliaryPlanPage.selectParamsCover("连续");
     //readWri = ["只读", "读写"];

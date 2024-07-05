@@ -1,6 +1,6 @@
 import RecoveryDBPage from "../../page/gaussdb_page/recovery/gs_recovery_page.cy";
 
-describe("module：GasussDB数据恢复", () => {
+describe("module：GasussDB 数据恢复", () => {
   let recoveryDBPage;
 
   //用例前置：读取qplus的url和登陆用例的测试数据

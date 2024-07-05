@@ -19,16 +19,16 @@ class DevelopDBPage {
   }
 
   //输入开发测试库名称
-  typeDevelopDBName() {
-    cy.get(this.elements.devdb_name).type("AutoDevlopDB");
+  typeDevelopDBName(name = "AutoDevlopDB") {
+    cy.get(this.elements.devdb_name).type(name);
   }
 
   //选择源备库
-  selectSrcBakDB() {
+  selectSrcBakDB(name = "AutoTestOrac") {
     cy.get(this.elements.src_bakdb)
       .click()
       .then(() => {
-        cy.contains("FengAutoTest").click();
+        cy.contains(name).click();
       });
   }
 
@@ -38,12 +38,15 @@ class DevelopDBPage {
   //选择ip分配方式
   selectIP() {}
 
-  //规格选择
-  selectDBScale() {
+  //选择备库规格
+  selectDBScale(cpu = 2, memory = 4) {
+    cy.log("选择备库规格");
+    let scale = cpu + "Core" + memory + "Gi";
+
     cy.get(this.elements.select_scale)
       .click()
       .then(() => {
-        cy.contains("2Core4Gi").click();
+        cy.contains(scale).click();
       });
   }
 
@@ -64,16 +67,16 @@ class DevelopDBPage {
   }
 
   //选择读写方式, 参数param可选: 可读写, 只读
-  clickReadWrite(param) {
+  clickReadWrite(param = "可读写") {
     cy.contains(param).click();
   }
 
   //选择恢复备份点
-  selectSnapshot() {
+  selectSnapshot(name = "AutoOracSnapshot") {
     cy.get(this.elements.select_snapshot)
       .click()
       .then(() => {
-        cy.contains("定时快照").click();
+        cy.contains(name).click();
       });
   }
 

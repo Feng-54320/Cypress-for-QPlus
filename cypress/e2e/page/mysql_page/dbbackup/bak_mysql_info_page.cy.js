@@ -8,18 +8,21 @@ class BakMysqlInfoPage {
     });
   }
 
-  typeBakDBName() {
-    cy.get(this.elements.bakDB_name).type("AutoTest");
+  typeBakDBName(name = "AutoTestMySQL") {
+    cy.get(this.elements.bakDB_name).type(name);
   }
 
-  selectComputerInstance() {
-    cy.get(this.elements.computer_box)
+  //选择备库规格
+  selectComputerInstance(cpu = 2, memory = 4) {
+    cy.log("选择备库规格");
+    let scale = cpu + "Core" + memory + "Gi";
+
+    cy.get(this.elements.select_scale)
       .click()
       .then(() => {
-        cy.get(this.elements.computer_dropdown).contains("2Core4Gi").click();
+        cy.contains(scale).click();
       });
   }
-
   selectAddressPool() {}
 
   typeDataZone() {
@@ -36,6 +39,11 @@ class BakMysqlInfoPage {
   }
   clickConfirm() {
     cy.get(this.elements.confirm_button).click();
+  }
+
+  //断言创建成功
+  assertCreateSuccess(){
+    cy.get(this.elements.progress_log).contains("SUCCESS");
   }
 }
 export default BakMysqlInfoPage;

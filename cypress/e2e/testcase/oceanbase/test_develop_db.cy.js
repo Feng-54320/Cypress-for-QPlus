@@ -1,6 +1,6 @@
 import DevelopDBPage from "../../page/oceanbase_page/develop/developdb_page.cy";
 
-describe("module：Oracle开发测试库", () => {
+describe("module：OB开发测试库", () => {
   let developDBPage;
 
   //用例前置：读取qplus的url和登陆用例的测试数据
@@ -18,7 +18,7 @@ describe("module：Oracle开发测试库", () => {
     //2. 断言恢复数据库按钮存在, 并点击
     developDBPage.assertCreateDevelopDBButton();
     //3. 输入开发测试库名称
-    developDBPage.typeDevelopDBName();
+    developDBPage.typeDevelopDBName("AutoOBDev123_!@#$");
     //4. 选择源备库
     developDBPage.selectSrcBakDB();
     //5. 规格选择

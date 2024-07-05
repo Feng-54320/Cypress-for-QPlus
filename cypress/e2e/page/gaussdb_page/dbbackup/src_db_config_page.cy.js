@@ -5,7 +5,7 @@ class SrcDBConfigPage {
   }
 
   //点击GS数据保护
-  clickOceanBase() {
+  clickGaussDB() {
     cy.log("点击GS数据保护");
     cy.get(this.elements.gs_panel).should("have.text", "GaussDB").click();
     cy.get(this.elements.data_protect).should("have.text", "数据保护").click();

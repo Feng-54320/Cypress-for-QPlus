@@ -33,30 +33,33 @@ class RecoveryDBPage {
   }
 
   //输入快照库名
-  typeRecoveryDBName() {
-    cy.get(this.elements.recovery_db_name).type("AutoRCY_Time");
+  typeRecoveryDBName(name = "AutoRCY_Time") {
+    cy.get(this.elements.recovery_db_name).type(name);
   }
 
   //选择源备库
-  selectSrcBakDB() {
+  selectSrcBakDB(name = "AutoTest") {
     cy.get(this.elements.src_bak_db)
       .click()
       .then(() => {
-        cy.contains("AutoTest").click();
+        cy.contains(name).click();
       });
   }
 
   //选择规格
-  selectSnapDBScale() {
-    cy.get(this.elements.scale_input)
+  selectSnapDBScale(cpu = 2, memory = 4) {
+    cy.log("选择备库规格");
+    let scale = cpu + "Core" + memory + "Gi";
+
+    cy.get(this.elements.select_scale)
       .click()
       .then(() => {
-        cy.contains("2Core4Gi").click();
+        cy.contains(scale).click();
       });
   }
 
   //增加数据存储上限
-  clickDataStoraAddButton(times = 0) {
+  clickDataStoraAddButton(times = 2) {
     Utils.clickButtonMultipleTimes(
       this.elements.data_storage_add_button,
       times
@@ -64,22 +67,23 @@ class RecoveryDBPage {
   }
 
   getTimeLimit() {
-    cy.get(this.elements.time_limit).invoke("text").then((text) =>{
+    cy.get(this.elements.time_limit)
+      .invoke("text")
+      .then((text) => {
         cy.log(text);
-    })
+      });
   }
 
-  clickConfirmButton(){
+  clickConfirmButton() {
     cy.get(this.elements.confirm_button).click();
   }
 
-  assertCreateRCYDBSuccess(){
+  assertCreateRCYDBSuccess() {
     cy.get(this.elements.progress_log).contains("SUCCESS");
   }
 
-  clickLogConfirmButton(){
+  clickLogConfirmButton() {
     cy.get(this.elements.log_confirm_button).click();
   }
-
 }
 export default RecoveryDBPage;

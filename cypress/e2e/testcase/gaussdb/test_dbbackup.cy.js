@@ -1,6 +1,5 @@
 import SrcDBConfigPage from "../../page/gaussdb_page/dbbackup/src_db_config_page.cy";
 import BakDbConfigPage from "../../page/gaussdb_page/dbbackup/bak_db_config_page.cy";
-import ConfigTenantPage from "../../page/gaussdb_page/dbbackup/config_tenant_page_cy";
 
 describe("module：GaussDB 数据保护", () => {
   let srcDBConfigPage;
@@ -13,14 +12,13 @@ describe("module：GaussDB 数据保护", () => {
     cy.fixture("/locator/gaussdb/dbbackup/elements.json").then((elements) => {
       srcDBConfigPage = new SrcDBConfigPage(elements[0]);
       bakDbConfigPage = new BakDbConfigPage(elements[1]);
-      configTenantPage = new ConfigTenantPage(elements[2]);
     });
   });
 
   //用例1
   it("case 1： 输入GS数据源和备库信息", () => {
     //点击数据保护
-    srcDBConfigPage.clickOceanBase();
+    srcDBConfigPage.clickGaussDB();
     //断言创建备库按钮可用并点击
     srcDBConfigPage.assertCreateBakDBButton();
     //输入源库配置信息

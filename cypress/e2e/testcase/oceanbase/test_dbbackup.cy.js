@@ -38,27 +38,29 @@ describe("module：OceanBase 数据保护", () => {
 
     //输入备库信息
     //输入备库名, 需要一个参数string类型, 无默认值
-    bakDbConfigPage.typeBakDBName("AutoTestOB");
-    //选择备库规格, 需要两个参数int, 默认是[8,8], 表示8Core8Gi
+    bakDbConfigPage.typeBakDBName("AutoTestOB123_!@#$");
+    //选择备库规格, 需要两个参数int, 默认是[6,8], 表示6Core8Gi
     bakDbConfigPage.selectScale();
-    //需要一个参数int, 表示增加多少的数据卷空间大小, 默认是20
-    bakDbConfigPage.clickDataVolumeAddButton();
+    //需要一个参数int, 表示增加多少的数据卷空间大小, 默认是0
+    bakDbConfigPage.clickDataVolumeAddButton(20);
     //需要一个参数Boolean, 默认false, 表示不启用数据卷压缩
     bakDbConfigPage.selectDataCompression();
-    //需要一个参数int, 表示增加多少的快照空间大小, 默认是10
-    bakDbConfigPage.clickSnapZoneAddButton();
-    //需要一个参数int, 表示增加多少的归档空间大小, 默认是10
-    bakDbConfigPage.clickArchiveZoneAddButton();
+    //需要一个参数int, 表示增加多少的快照空间大小, 默认是0
+    bakDbConfigPage.clickSnapZoneAddButton(10);
+    //需要一个参数int, 表示增加多少的归档空间大小, 默认是0
+    bakDbConfigPage.clickArchiveZoneAddButton(10);
     //需要一个参数Boolean, 默认false, 表示不启用归档压缩
     bakDbConfigPage.selectArchiveCompression();
-    //需要一个参数int, 表示增加多少的DataFileSize大小, 默认是8
-    bakDbConfigPage.clickDataFileSizeAddButton();
-    //需要一个参数int, 表示增加多少的LogDiskSize大小, 默认是8
-    bakDbConfigPage.clickLogDiskSizeAddButton();
+    //需要一个参数int, 表示增加多少的DataFileSize大小, 默认是0
+    bakDbConfigPage.clickDataFileSizeAddButton(7);
+    //需要一个参数int, 表示增加多少的LogDiskSize大小, 默认是0
+    bakDbConfigPage.clickLogDiskSizeAddButton(7);
     //点击下一步
     bakDbConfigPage.clickNextStepButton();
     //断言创建成功
     bakDbConfigPage.assertCreateBakDBSuccess();
+    //断言进入手工操作文档
+    bakDbConfigPage.assertGetManualDoc();
   });
 
   it("case 2: 配置租户", () => {

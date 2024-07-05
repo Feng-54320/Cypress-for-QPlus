@@ -40,7 +40,6 @@ class SrcDBConfigPage {
   //断言测试连接成功
   assertConnDB() {
     cy.log("断言测试连接成功");
-    cy.wait(5000);
     qAssert.assertTextExist(this.elements.conn_success, "连接成功");
   }
 

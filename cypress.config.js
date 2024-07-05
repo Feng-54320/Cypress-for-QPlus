@@ -55,7 +55,7 @@ module.exports = defineConfig({
   //配置截图路径
   screenshotsFolder: "cypress/screenshots",
   //配置任务超时时间
-  defaultCommandTimeout: 180000,
+  defaultCommandTimeout: 240000,
   taskTimeout: 900000,
   //配置测试报告
   reporter: "mochawesome",

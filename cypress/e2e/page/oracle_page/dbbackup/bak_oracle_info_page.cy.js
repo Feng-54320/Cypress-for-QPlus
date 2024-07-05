@@ -34,8 +34,8 @@ class BakOracleInfoPage {
     Utils.clickButtonMultipleTimes(this.elements.redo_add_button, times);
   }
 
-  //清空data空间, 再点两次加号按钮
-  typeDataZone(times = 8) {
+  //清空data空间, 再点加号按钮
+  typeDataZone(times = 0) {
     cy.log("增加数据卷空间");
     Utils.clickButtonMultipleTimes(this.elements.data_add_button, times);
   }
