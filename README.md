@@ -117,3 +117,9 @@ Cypress提供了多种断言方法（如.should和.expect），确保使用适�
 2. 安装依赖包
 > npm install ssh2 <br>
 > npm install oracledb
+>
+3. 启动cypress
+- 可以通过命令行执行
+> npx cypress open
+> 或者
+> .\node_modules\.bin\cypress open
